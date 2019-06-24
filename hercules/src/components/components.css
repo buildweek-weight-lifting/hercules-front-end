@@ -1,0 +1,15 @@
+.Nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.Nav a{
+  text-decoration: none;
+  color: grey;
+}
+
+.Home{
+    background-image: url("../images/dumbell-woman.png");
+}
