@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@media(max-width: 375px){
+    .signup-page{
+        position: fixed;
+        top: 0px;
+        width: 375px;
+        height: 667px;
+        background-image: url(../../assets/Background-Image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+    }
+    .signup-page .signup-text{
+        color: white;
+        font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+        position: relative;
+        bottom: 20px;
+    }
+    .signup-page-logo{
+        background-image: url(../../assets/hercules-logo.svg);
+        width: 38px;
+        height: 38px;
+        position: relative;
+        margin: 0px auto;
+        margin-top: 50px;
+    }
+    .signup-form{
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        position: relative;
+        bottom: 20px;
+    }
+
+    .signup-form input{
+        padding-left: 20px;
+        width: 259px;
+        height: 46px;
+        background-color: transparent;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+        margin: 5px auto;
+        font-family: 'Roboto', sans-serif;
+    }
+    .signup-form input::placeholder{
+        color:#ffffff;
+        font-size: 12px;
+        font-style: normal;
+        line-height: 14px;
+    }
+    .signup-form .signup-btn{
+        width: 281px;
+        height: 46px;
+        background-color: #FFEC42;
+        color: #000000;
+        margin: 10px auto;
+        cursor: pointer;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .login-back-btn{
+        background-image: url(../../assets/Go-Back.svg);
+        width: 60px;
+        height: 24px;
+        margin: 5px auto;
+        cursor: pointer;
+    }
+}
