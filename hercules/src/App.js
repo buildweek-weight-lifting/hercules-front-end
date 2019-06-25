@@ -4,19 +4,19 @@ import './App.css';
 //import PrivateRoute from './PrivateRoute'
 import Login from './components/auth/Login'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import Signup from './components/auth/Signup'
+import Signup from './components/auth/signup'
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Profile from "./components/Profile";
 //import AddExcercise from "./components/AddExcercise";
 import SelectExcercises from "./components/SelectExcercises";
 
-
 function App() {
   return (
     <Router>
       <div className="App">
         <Nav />
+
         <Route
           exact path="/"
           render={() => (
@@ -30,8 +30,6 @@ function App() {
             <Profile />
           )}
         />
-
-        
 
         <Route
           exact path="/login"
