@@ -20,14 +20,14 @@ class Nav extends React.Component{
         <div className="mobile-bar">
           <div onClick={this.dropMenu}> menu </div>
           <div>logo </div>
-          <NavLink exact to="/">profile</NavLink>
+          <NavLink exact to="/profile">profile</NavLink>
         </div>
         
         
           <div className={  this.state.dropped ? "drop-down" : "up"}>
             <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/">Add Excercise</NavLink>
-            <NavLink exact to="/">Sign Out</NavLink>
+            <NavLink exact to="/add-excercise">Add Excercise</NavLink>
+            <NavLink exact to="/login">Sign Out</NavLink>
           </div>
        
 
