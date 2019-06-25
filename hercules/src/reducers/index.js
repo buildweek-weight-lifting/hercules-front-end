@@ -1,12 +1,15 @@
 import {
     LOGIN_START,
     LOGIN_SUCCESS,
-    LOGIN_FAILURE
+    LOGIN_FAILURE,
+    GET_USERS,
+    ERROR_MESSAGE,
+    LOADING
 } from '../actions'
 
 const initialState = {
-    friends:[],
     isLoggingIn:false,
+    isSigningUp:false,
     error:'',
     isFetching:false,
 }
@@ -30,7 +33,14 @@ export const reducer = (state=initialState,action) => {
                 ...state,
                 error:action.payload,
                 isLoggingIn:false
-            }        
+            };
+            case GET_USERS:
+                return Object.assign({}, state, {users: action.users, loading: false, error: ''})
+            case ERROR_MESSAGE:
+                return Object.assign({}, state, {error: action.errorMessage, loading: false})
+            case LOADING:
+                return Object.assign({}, state, {loading: true})
+
         default:
             return state;    
     }
