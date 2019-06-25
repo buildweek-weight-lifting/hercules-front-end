@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getExercise } from '../../actions/index.js';
-import Exercise from './exercise';
+import Exercise from './Exercise';
 
 class ExerciseList extends Component {
     componentDidMount(){

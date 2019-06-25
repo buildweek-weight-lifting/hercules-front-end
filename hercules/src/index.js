@@ -9,14 +9,15 @@ import {reducer} from './reducers'
 
 import {BrowserRouter as Router, withRouter} from 'react-router-dom';
 
-const AppWithRouter = withRouter(App);
+// const AppWithRouter = withRouter(App);
 
-ReactDOM.render(<Router><AppWithRouter /></Router>, 
-document.getElementById('root'));
+// // ReactDOM.render(<Router><AppWithRouter /></Router>, 
+// // document.getElementById('root'));
 
 const store = createStore(reducer,applyMiddleware(thunk))
 
 ReactDOM.render(
 <Provider store={store}>
-<App />
-</Provider>, document.getElementById('root'));
+    <App />
+</Provider>, document.getElementById('root')
+);
