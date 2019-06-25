@@ -1,0 +1,43 @@
+
+
+.Nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 11px;
+}
+
+.mobile-bar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Nav a{
+  text-decoration: none;
+  color: grey;
+}
+
+.Home{
+  height: 100%;
+  width: 100%;
+  color: white;
+    background-image: url("../images/dumbell-woman.png"); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
+}
+
+.up{
+  display:none; 
+}
+
+.drop-down{
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+}
+
+.drop-down a{
+  margin: 3px;
+}
