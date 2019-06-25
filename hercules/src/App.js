@@ -13,7 +13,6 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Home />
       </div>
       <Route path='/login' component={Login}/>
       <Route path='/signup' component={Signup}/>
