@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+@media(max-width: 375px){
+    .addExercise-page{
+        position: relative;
+        width: 375px;
+        height: 767px;
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+    .addExercise-page h3{
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Oswald";
+        font-style: normal;
+        line-height: 21px;
+        text-align: left;
+        padding-left: 13px;
+    }
+    .addExercise-back-btn{
+        background-image: url(../../assets/Go-Back.svg);
+        width: 60px;
+        height: 24px;
+        margin: 5px 0px;
+        cursor: pointer;
+    }
+    .addExerciseHeader{
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        font-family: "Oswald";
+        font-style: normal;
+        font-weight: 500;
+    }
+    .input-title{
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+    }
+    .input-title::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+    }
+    .input-date{
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+    }
+    .input-date::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+    }
+
+    .input-description{
+        width: 339px;
+        height: 129px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+        padding-top: 15px;
+    }
+    .input-description::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+        
+    }
+
+    .targetRegion-Btns{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0px auto;
+    }
+
+    .targetRegion-Btns button{
+        width: 106px;
+        height: 43px;
+        background-color: #202020;
+        color: #ffffff;
+        margin: 5px auto;
+        border: none;
+    }
+
+    .addExercise-bottom{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+    .textlifted{
+        text-align: right;
+    }
+    .addExercise-bottom input{
+        position: relative;
+        width: 106px;
+        height: 46px;
+        left: 12px;
+    } 
+    .addExercise-bottom .inputReps{
+        position: relative;
+
+    } 
+
+    .addExercise-bottom .inputLifted{
+        position: relative;
+        float: left;
+    }
+
+}

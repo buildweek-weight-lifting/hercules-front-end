@@ -1,18 +1,19 @@
 import React from 'react'
-import { login } from '../../actions'
+import { signup } from '../../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import './signup.css'
 
-class Login extends React.Component {
+class SignUp extends React.Component {
     constructor() {
         super()
         this.state = {
             credentials: {
-                firstname: '',
-                lastname: '',
-                email: '',
-                password: ''
+                username: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                email: ''
             }
         }
     }
@@ -26,15 +27,17 @@ class Login extends React.Component {
         })
     }
 
-    loginSubmit = (event) => {
-        event.preventDefault()
-        this.props.login(this.state.credentials)
-            .then(() => {
-                this.props.history.push('/protected')
-            })
-            .catch(err => {
-                console.log(err)
-            })
+    signupSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state)
+        this.props.signup(this.state);
+        this.setState({
+            username: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            email: ''
+        })
     }
 
     render() {
@@ -45,24 +48,34 @@ class Login extends React.Component {
                 <h1 className="signup-text">Create an account</h1>
                 <form 
                 className="signup-form"
-                onSubmit={this.loginSubmit}>
+                onSubmit={this.signupSubmit}>
                     <input
-                        className="firstname-field"
-                        name='firstname'
-                        placeholder="first name"
+                        className="username-field"
+                        name='username'
+                        placeholder="username"
+                        type="string"
                         value={this.state.credentials.username}
                         onChange={this.handleChange}>
                     </input>
                     <input
+                        className="firstname-field"
+                        name='firstName'
+                        placeholder="first name"
+                        type="string"
+                        value={this.state.credentials.firstName}
+                        onChange={this.handleChange}>
+                    </input>
+                    <input
                         className="lastname-field"
-                        name='lastname'
+                        name='lastName'
                         placeholder="last name"
-                        value={this.state.credentials.lastname}
+                        type="string"
+                        value={this.state.credentials.lastName}
                         onChange={this.handleChange}>
                     </input>
                     <input
                         className="email-field"
-                        type='email'
+                        type="string"
                         name='email'
                         placeholder="email address"
                         value={this.state.credentials.email}
@@ -70,14 +83,14 @@ class Login extends React.Component {
                     </input>
                     <input
                         className="password-field"
-                        type='password'
+                        type="string"
                         name='password'
                         placeholder="password"
                         value={this.state.credentials.password}
                         onChange={this.handleChange}>
                     </input>
                     
-                    <button className="signup-btn" onClick={this.loginSubmit}>{this.props.isLoggingIn ? (
+                    <button className="signup-btn" onClick={this.signupSubmit}>{this.props.isLoggingIn ? (
                         <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
                     ):( `Let's go!`)} </button>
                     <div className="login-back-btn"></div>
@@ -93,5 +106,5 @@ const mapStateToProps = state => ({
 })
 
 export default connect(
-    mapStateToProps, { login }
-)(Login)
+    mapStateToProps, { signup }
+)(SignUp)
