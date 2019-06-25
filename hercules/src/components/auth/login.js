@@ -46,6 +46,7 @@ class Login extends React.Component {
                 onSubmit={this.loginSubmit}>
                     <input
                         className="username-field"
+                        type="string"
                         name='username'
                         placeholder="username"
                         value={this.state.credentials.username}
