@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-@media(max-width: 375px){
+@media(max-width: 411px){
     .signup-page{
         position: fixed;
         top: 0px;
-        width: 375px;
-        height: 667px;
+        max-width: 411px;
+        max-height: 667px;
+        width: 100%;
+        height: 100%;
         background-image: url(../../assets/Background-Image.png);
         background-repeat: no-repeat;
         background-size: cover;
