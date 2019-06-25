@@ -7,11 +7,16 @@ import {
     LOADING
 } from '../actions'
 
+import {
+    TOGGLE_DROP
+  } from '../actions/NavActions'
+
 const initialState = {
     isLoggingIn:false,
     isSigningUp:false,
     error:'',
     isFetching:false,
+    dropped: false,
 }
 
 export const reducer = (state=initialState,action) => {
@@ -40,6 +45,11 @@ export const reducer = (state=initialState,action) => {
                 return Object.assign({}, state, {error: action.errorMessage, loading: false})
             case LOADING:
                 return Object.assign({}, state, {loading: true})
+        case TOGGLE_DROP:
+          return {
+              ...state,
+              dropped: !state.dropped
+          };
 
         default:
             return state;    

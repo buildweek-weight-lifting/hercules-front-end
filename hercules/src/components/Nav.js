@@ -1,18 +1,18 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import "./components.css"
-
+import { toggleDrop } from "../actions/NavActions"
+import { connect } from "react-redux";
 
 class Nav extends React.Component{
-  state = {
-    dropped: false
-  }
-
+ 
   dropMenu = () => {
-    this.setState({dropped: !this.state.dropped});
-    //console.log(this.state.dropped);
+    //this.props.dropped = !this.props.dropped;
+    this.props.toggleDrop();
+    console.log("state", this.state);
+    console.log("prop drop", this.props.dropped);
   }
-
+  
   render(){
     return(
       <div className="Nav">
@@ -24,7 +24,7 @@ class Nav extends React.Component{
         </div>
         
         
-          <div className={  this.state.dropped ? "drop-down" : "up"}>
+          <div className={  this.props.dropped ? "drop-down" : "up"}>
             <NavLink exact to="/">Home</NavLink>
             <NavLink exact to="/add-excercise">Add Excercise</NavLink>
             <NavLink exact to="/login">Sign Out</NavLink>
@@ -35,9 +35,15 @@ class Nav extends React.Component{
       </div>
       
     );
-
   }
-  
 }
 
-export default Nav;
+const mapStateToProps = state => ({
+  dropped: state.dropped
+});
+
+export default connect(
+  mapStateToProps,
+  { toggleDrop }
+)(Nav);
+
