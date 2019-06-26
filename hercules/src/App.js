@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 //import PrivateRoute from './PrivateRoute'
 import Login from './components/auth/Login'
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SignUp from './components/auth/Signup'
 import Home from "./components/Home";
 import Nav from "./components/Nav";
@@ -11,6 +11,7 @@ import Profile from "./components/Profile";
 //import AddExcercise from "./components/AddExcercise";
 import SelectExcercises from "./components/SelectExcercises";
 import AddExercise from './components/addExercise/AddExercise';
+import Selection from "./components/Selection"
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Nav />
 
         <Route
-          exact path="/"
+          exact path="/dashboard"
           render={() => (
             <Home />
           )}
@@ -57,6 +58,13 @@ function App() {
           exact path="/select-excercises"
           render={() => (
             <SelectExcercises />
+          )}
+        />
+
+          <Route
+          exact path="/"
+          render={() => (
+            <Selection />
           )}
         />
 

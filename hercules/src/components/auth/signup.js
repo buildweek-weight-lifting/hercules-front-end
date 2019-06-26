@@ -31,7 +31,6 @@ class SignUp extends React.Component {
 
     signupSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
         this.props.signup(this.state.credentials);
         this.setState({
             username: '',
@@ -97,7 +96,7 @@ class SignUp extends React.Component {
                         <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
                     ):( `Let's go!`)} </button>
                     
-                    <NavLink exact to="/login"><div className="login-back-btn"></div></NavLink>
+                    <NavLink exact to="/"><div className="login-back-btn"></div></NavLink>
                 </form>
                 </div>
             </div>
