@@ -8,14 +8,14 @@ class AddExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            exercise: {
-                exercisetitle: '',
-                date: '',
-                description: '',
-                targetRegion: '',
-                amountlifted: '',
-                repititions: '',
-                customimage: ''
+            exercises: {
+                id: '44',
+                journalId: '12',
+                userId: '12',
+                name: '',
+                reps: '',
+                sets: '',
+                weight: ''
             }
         }
     }
@@ -31,13 +31,13 @@ class AddExercise extends React.Component{
         this.props.addExercise(this.state.exercise);
 
         this.setState({
-            exercisetitle: '',
-            date: '',
-            description: '',
-            targetRegion: [],
-            amountlifted: '',
-            repititions: '',
-            customimage: ''
+            id: '44',
+            journalId: '12',
+            userId: '12',
+            name: '',
+            weight: '',
+            sets: '',
+            reps: '',
         })
     }
 
@@ -48,7 +48,7 @@ class AddExercise extends React.Component{
                 <h1 className="addExerciseHeader">ADD A EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
-                <input className="input-title" onChange={this.inputHandler} type="text" name="exercisetitle" placeholder="e.g. Quick hit Abs" value={this.state.exercisetitle}></input>
+                <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name}></input>
                 <h3>Date</h3>
                 <input className="input-date" onChange={this.inputHandler} type="text" name="date" value={this.state.date} placeholder="e.g. June 11, 2019"></input>
                 <h3>Description</h3>
@@ -69,9 +69,9 @@ class AddExercise extends React.Component{
                     <h3> </h3>
                     <h3 className="textlifted">Amount Lifted</h3>
 
-                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.repititions} name="repititions" placeholder="00"></input>
+                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="00"></input>
                     <h3>AND</h3>
-                    <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.amountlifted} name="amountlifted" placeholder="00"></input>
+                    <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.weight} name="weight" placeholder="00"></input>
                 </div>
 
                 <div className="addExercise-customImage">
