@@ -5,10 +5,12 @@
 @media(max-width: 375px){
     .addExercise-page{
         position: relative;
-        width: 375px;
-        height: 767px;
+        max-width: 375px;
+        max-height: 1067px;
+        width: 100%;
         background-color: #000000;
         color: #FFFFFF;
+        padding-top: 15px;
     }
     .addExercise-page h3{
         font-size: 14px;
@@ -105,6 +107,8 @@
     }
     .textlifted{
         text-align: right;
+        position: relative;
+        left: 23px;
     }
     .addExercise-bottom input{
         position: relative;
@@ -113,13 +117,52 @@
         left: 12px;
     } 
     .addExercise-bottom .inputReps{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
         position: relative;
-
+        text-align: center;
+        background-color: transparent;
+        border: .1px solid grey;
+        color: #FFFFFF
     } 
 
     .addExercise-bottom .inputLifted{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
         position: relative;
-        float: left;
+        left: 5px;
+        text-align: center;
+        background-color: transparent;
+        border: .1px solid grey;
+        color: #ffffff;
     }
 
+    .customImage{
+        padding-left: 10px;
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .1px solid grey;
+    }
+
+    .createExerciseBtn{
+        width: 347px;
+        height: 46px;
+        background-color: #FFEC42;
+        color: #000000;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        margin: 20px auto;
+        border: none;
+    }
 }

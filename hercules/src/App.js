@@ -4,12 +4,13 @@ import './App.css';
 //import PrivateRoute from './PrivateRoute'
 import Login from './components/auth/Login'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import Signup from './components/auth/signup'
+import SignUp from './components/auth/Signup'
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Profile from "./components/Profile";
 //import AddExcercise from "./components/AddExcercise";
 import SelectExcercises from "./components/SelectExcercises";
+import AddExercise from './components/addExercise/AddExercise';
 
 function App() {
   return (
@@ -39,6 +40,20 @@ function App() {
         />
 
         <Route
+          exact path="/signup"
+          render={() => (
+            <SignUp />
+          )}
+        />
+
+        <Route
+          exact path="/add-excercise"
+          render={() => (
+            <AddExercise />
+          )}
+        />
+
+        <Route
           exact path="/select-excercises"
           render={() => (
             <SelectExcercises />
@@ -50,14 +65,5 @@ function App() {
     </Router>
   )
 }
-
-/*
-<Route
-          exact path="/add-excercise"
-          render={() => (
-            <AddExcercise />
-          )}
-        />
-        */
 
 export default App;

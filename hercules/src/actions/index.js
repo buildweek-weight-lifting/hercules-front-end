@@ -7,6 +7,7 @@ export const GET_USERS = "GET_USERS"
 export const ERROR_MESSAGE = "ERROR_MESSAGE"
 export const LOADING = "LOADING"
 
+
 export const login = creds => dispatch => {
     dispatch({type:LOGIN_START});
     return axios
@@ -35,3 +36,7 @@ export const signup = (creds) => {
         })
     }
   }
+
+export const addExercise = () => {
+  return 
+}

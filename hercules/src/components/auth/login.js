@@ -2,7 +2,9 @@ import React from 'react'
 import { login } from '../../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
+import { withRouter } from 'react-router-dom';
 import './login.css'
+
 
 class Login extends React.Component {
     constructor() {
@@ -26,9 +28,10 @@ class Login extends React.Component {
 
     loginSubmit = (event) => {
         event.preventDefault()
+        console.log(this.props)
         this.props.login(this.state.credentials)
             .then(() => {
-                this.props.history.push('/protected')
+                this.props.history.push('/')
             })
             .catch(err => {
                 console.log(err)
@@ -75,6 +78,6 @@ const mapStateToProps = state => ({
     isLoggingIn:state.isLoggingIn
 })
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps, { login }
-)(Login)
+)(Login))

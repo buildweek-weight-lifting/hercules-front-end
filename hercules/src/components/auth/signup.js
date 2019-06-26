@@ -3,6 +3,8 @@ import { signup } from '../../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import './signup.css'
+import { withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class SignUp extends React.Component {
     constructor() {
@@ -38,6 +40,7 @@ class SignUp extends React.Component {
             lastName: '',
             email: ''
         })
+        this.props.history.push('/')
     }
 
     render() {
@@ -83,7 +86,7 @@ class SignUp extends React.Component {
                     </input>
                     <input
                         className="password-field"
-                        type="string"
+                        type="password"
                         name='password'
                         placeholder="password"
                         value={this.state.credentials.password}
@@ -93,7 +96,8 @@ class SignUp extends React.Component {
                     <button className="signup-btn" onClick={this.signupSubmit}>{this.props.isLoggingIn ? (
                         <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
                     ):( `Let's go!`)} </button>
-                    <div className="login-back-btn"></div>
+                    
+                    <NavLink exact to="/login"><div className="login-back-btn"></div></NavLink>
                 </form>
                 </div>
             </div>
@@ -105,6 +109,6 @@ const mapStateToProps = state => ({
     isLoggingIn:state.isLoggingIn
 })
 
-export default connect(
-    mapStateToProps, { signup }
-)(SignUp)
+export default withRouter(connect(
+    mapStateToProps, { signup } 
+)(SignUp))
