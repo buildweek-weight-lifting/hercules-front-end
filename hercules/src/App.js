@@ -12,12 +12,12 @@ import Profile from "./components/Profile";
 import SelectExcercises from "./components/SelectExcercises";
 import AddExercise from './components/addExercise/AddExercise';
 
-
 function App() {
   return (
     <Router>
       <div className="App">
         <Nav />
+
         <Route
           exact path="/"
           render={() => (
@@ -31,8 +31,6 @@ function App() {
             <Profile />
           )}
         />
-
-        
 
         <Route
           exact path="/login"
