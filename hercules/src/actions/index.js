@@ -42,9 +42,10 @@ export const signup = (creds) => {
 
 export const addExercise = (exdata) => {
   return(dispatch) => {
+    console.log("exdata check", exdata)
     dispatch({type: LOADING})
     axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata,
-    {headers: { Authorization: localStorage.getItem("token") } }, {headers: { Authorization: localStorage.getItem("id") } })
+    {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'}, {headers: { Authorization: localStorage.getItem("id") } })
     .then( response => {
       dispatch({type: GET_EXERCISE, exercises: response.data})
     })

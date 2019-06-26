@@ -4,22 +4,21 @@ import { addExercise } from '../../actions/index.js';
 import { NavLink } from 'react-router-dom';
 import './addexercise.css'
 
+let id = localStorage.getItem("id");
+
 class AddExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            exercises: {
-                id: '44',
-                journalId: '12',
-                userId: '12',
+                journalId: id * Math.floor(Math.random() * 100000) + 1,
+                userId: id,
                 name: '',
                 reps: '',
                 sets: '',
                 weight: ''
-            }
         }
     }
-
+    
     inputHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -28,17 +27,14 @@ class AddExercise extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
-        this.props.addExercise(this.state.exercise);
-
-        this.setState({
-            id: '44',
-            journalId: '12',
-            userId: '12',
-            name: '',
-            weight: '',
-            sets: '',
-            reps: '',
-        })
+        this.props.addExercise(this.state);
+        // this.setState({
+        //     name: '',
+        //     reps: '',
+        //     sets: '',
+        //     weight: ''
+        // })
+        console.log(this.state)
     }
 
     render(){
@@ -49,19 +45,19 @@ class AddExercise extends React.Component{
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
                 <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name}></input>
-                <h3>Date</h3>
-                <input className="input-date" onChange={this.inputHandler} type="text" name="date" value={this.state.date} placeholder="e.g. June 11, 2019"></input>
+                <h3>Sets</h3>
+                <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Sets"></input>
                 <h3>Description</h3>
-                <textarea className="input-description" onChange={this.inputHandler} type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
+                <textarea className="input-description" onChange={this.inputHandler} disabled="disabled" type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
 
                 <h3>Target Region Area</h3>
                 <div className="targetRegion-Btns">
-                    <button type="button" onClick={this.inputHandler} name="targetRegion" value="Biceps">Biceps</button>
-                    <button type="button" onClick={this.inputHandler} name="targetRegion"  value="Triceps">Triceps</button>
-                    <button type="button" onClick={this.inputHandler} name="targetRegion"  value="Back">Back</button>
-                    <button type="button" onClick={this.inputHandler} name="targetRegion"  value="Chest">Chest</button>
-                    <button type="button" onClick={this.inputHandler} name="targetRegion"  value="Shoulders">Shoulders</button>
-                    <button type="button" onClick={this.inputHandler} name="targetRegion"  value="Legs">Legs</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion" value="Biceps">Biceps</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Triceps">Triceps</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Back">Back</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Chest">Chest</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Shoulders">Shoulders</button>
+                    <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Legs">Legs</button>
                 </div>
 
                 <div className="addExercise-bottom">
