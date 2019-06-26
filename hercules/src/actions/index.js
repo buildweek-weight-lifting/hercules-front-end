@@ -13,7 +13,10 @@ export const login = creds => dispatch => {
     return axios
     .post('https://get-hercules.herokuapp.com/api/auth/login',creds)
     .then(res => {
-        localStorage.setItem('token',res.data.payload)
+        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('id',res.data.user.id)
+        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('token',res.data.token)
         dispatch({type:LOGIN_SUCCESS,payload:res.data.payload})
         console.log(res)
     })
@@ -40,7 +43,8 @@ export const signup = (creds) => {
 export const addExercise = (exdata) => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata)
+    axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata,
+    {headers: { Authorization: localStorage.getItem("token") } }, {headers: { Authorization: localStorage.getItem("id") } })
     .then( response => {
       dispatch({type: GET_EXERCISE, exercises: response.data})
     })
