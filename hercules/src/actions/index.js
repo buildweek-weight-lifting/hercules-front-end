@@ -73,7 +73,8 @@ export const getExercise = () => {
     dispatch({type: LOADING})
     axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
-      dispatch({type: GET_EXERCISE, exercises: response.data})
+      console.log("response data", response)
+      dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
     .catch(err => {
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
