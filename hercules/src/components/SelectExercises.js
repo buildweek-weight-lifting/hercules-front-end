@@ -4,7 +4,7 @@ const SelectExcercises = () => {
 
   return(
     <div className="Home">
-      <h1>SelectExcercises</h1>
+      <h1>Single Exercise Page</h1>
     </div>
   );
 }

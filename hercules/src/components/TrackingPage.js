@@ -1,13 +1,13 @@
 import React from "react";
 
-const Profile = props => {
+const Tracking= props => {
 
   return(
     <div className="Home">
 
-      <h1>Profile</h1>
+      <h1>Tracking</h1>
     </div>
   );
 }
 
-export default Profile;
+export default Tracking;
