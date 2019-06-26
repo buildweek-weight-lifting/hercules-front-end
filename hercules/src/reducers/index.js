@@ -28,6 +28,7 @@ const initialState = {
         {name: "curl"},
         {name: "press"}
     ],
+    exercises: [],
     carouselIndex: 0,
 }
 

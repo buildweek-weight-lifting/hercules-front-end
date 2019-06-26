@@ -32,6 +32,7 @@ class SignUp extends React.Component {
     signupSubmit = (event) => {
         event.preventDefault();
         this.props.signup(this.state.credentials);
+        
         this.setState({
             username: '',
             password: '',
@@ -40,6 +41,7 @@ class SignUp extends React.Component {
             email: ''
         })
         this.props.history.push('/')
+        console.log(this.state)
     }
 
     render() {

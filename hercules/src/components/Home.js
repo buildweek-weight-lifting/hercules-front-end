@@ -52,7 +52,7 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  exercise: state.exercise,
+  exercises: state.exercises,
   exerciseData: state.exerciseData,
   carouselIndex: state.carouselIndex
 });
