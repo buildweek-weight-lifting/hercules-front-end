@@ -5,10 +5,7 @@ import { getExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
 
 class Home extends React.Component {
-  // state={
-  //   carouselIndex: this.props.carouselIndex
-  // }
-
+  
   componentDidMount() {
     
     this.props.getExercise();
@@ -22,38 +19,42 @@ class Home extends React.Component {
       this.props.goLeft();
     }
   }
-  right = () => {
-    if(this.props.carouselIndex < this.props.exercises.length-1){
+  right = (filtered) => {
+    if(this.props.carouselIndex < filtered.length-1){
       this.props.goRight();
     }
   }
 
-  testRender = () => {
-    if(this.props.exercises <= 0){
-      return <h1>Loading</h1>
+  testRender = (filtered) => {
+    if(filtered <= 0){
+      return <h1>(No Exercises)</h1>
     }
     else{
+      //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
+      console.log("filtered", filtered)
       return (
+        
         <div>
-          <p>name: {this.props.exercises[this.props.carouselIndex].name}</p>
-          <p>reps: {this.props.exercises[this.props.carouselIndex].reps}</p>
-          <p>weight: {this.props.exercises[this.props.carouselIndex].weight}</p>
+          { }
+        
+          <p>name: {filtered[this.props.carouselIndex].name}</p>
+          <p>reps: {filtered[this.props.carouselIndex].reps}</p>
+          <p>weight: {filtered[this.props.carouselIndex].weight}</p>
         </div>
       )
     }
   }
 
   render () {
+    console.log("storage", localStorage.getItem("id"));
     console.log("props", this.props.exercises)
-    console.log("exercises on render", this.props.exercises[0])
-    //console.log("state", this.state)
-    //console.log("length", this.props.exercises.length)
+    let filtered = this.props.exercises.filter( e => e.userId === localStorage.getItem("id"));
     return(
       <div className="Home">
         <img src="./images/hercules-logo.svg" alt="logo"/>
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
-        {this.testRender()}
+        {this.testRender(filtered)}
     
     {/* 
         {this.props.exercises.map( e => (
@@ -66,8 +67,8 @@ class Home extends React.Component {
         </NavLink>
         
         <div>
-        <button onClick={this.left}>left</button>
-        <button onClick={this.right}>right</button>
+        <button onClick={() => this.left(filtered)}>left</button>
+        <button onClick={() => this.right(filtered)}>right</button>
         </div>
       </div>
     );

@@ -59,7 +59,7 @@ export const getExercise = () => {
     dispatch({type: LOADING})
     axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
-      //console.log("response data", response)
+      console.log("response data", response)
       dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
     .catch(err => {
