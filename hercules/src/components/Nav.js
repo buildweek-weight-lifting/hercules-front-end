@@ -9,8 +9,8 @@ class Nav extends React.Component{
   dropMenu = () => {
     //this.props.dropped = !this.props.dropped;
     this.props.toggleDrop();
-    console.log("state", this.state);
-    console.log("prop drop", this.props.dropped);
+    //console.log("state", this.state);
+    //console.log("prop drop", this.props.dropped);
   }
   
   render(){
@@ -25,7 +25,7 @@ class Nav extends React.Component{
         
         
           <div className={  this.props.dropped ? "drop-down" : "up"}>
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/dashboard">Home</NavLink>
             <NavLink exact to="/add-excercise">Add Excercise</NavLink>
             <NavLink exact to="/login">Sign Out</NavLink>
           </div>
