@@ -5,12 +5,18 @@ import {
     GET_USERS,
     ERROR_MESSAGE,
     LOADING,
-    GET_EXERCISE
+    GET_EXERCISE,
 } from '../actions'
 
 import {
     TOGGLE_DROP
   } from '../actions/NavActions'
+
+  import {
+    LEFT,
+    RIGHT
+  } from '../actions/homeActions'
+  
 
 const initialState = {
     isLoggingIn:false,
@@ -18,6 +24,11 @@ const initialState = {
     error:'',
     isFetching:false,
     dropped: false,
+    exerciseData: [
+        {name: "curl"},
+        {name: "press"}
+    ],
+    carouselIndex: 0,
 }
 
 export const reducer = (state=initialState,action) => {
@@ -53,7 +64,16 @@ export const reducer = (state=initialState,action) => {
           };
         case GET_EXERCISE:
             return Object.assign({}, state, {exercises: action.exercises, loading: false, error: ''})
-
+        case LEFT:
+            return{
+                ...state,
+                carouselIndex: 0
+            }
+        case RIGHT:
+            return{
+                ...state,
+                carouselIndex: 1
+            }
         default:
             return state;    
     }

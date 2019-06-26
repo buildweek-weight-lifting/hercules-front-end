@@ -49,3 +49,16 @@ export const addExercise = (exdata) => {
     })
   }
 }
+
+export const getExercise = (exdata) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata)
+    .then( response => {
+      dispatch({type: GET_EXERCISE, exercises: response.data})
+    })
+    .catch(err => {
+      dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
+    })
+  }
+}
