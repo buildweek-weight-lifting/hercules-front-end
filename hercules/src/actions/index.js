@@ -54,12 +54,13 @@ export const addExercise = (exdata) => {
   }
 }
 
-export const getExercise = (exdata) => {
+export const getExercise = () => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata, {headers: { Authorization: localStorage.getItem("token") } })
+    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
-      dispatch({type: GET_EXERCISE, exercises: response.data})
+      //console.log("response data", response)
+      dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
     .catch(err => {
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})

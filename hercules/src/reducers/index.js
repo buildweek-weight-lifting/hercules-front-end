@@ -25,9 +25,10 @@ const initialState = {
     isFetching:false,
     dropped: false,
     exerciseData: [
-        {name: "curl"},
-        {name: "press"}
+        {name: "notapi"},
+        {name: "test"}
     ],
+    exercises: [],
     carouselIndex: 0,
 }
 
@@ -64,15 +65,16 @@ export const reducer = (state=initialState,action) => {
           };
         case GET_EXERCISE:
             return Object.assign({}, state, {exercises: action.exercises, loading: false, error: ''})
+            
         case LEFT:
             return{
                 ...state,
-                carouselIndex: 0
+                carouselIndex: state.carouselIndex-1
             }
         case RIGHT:
             return{
                 ...state,
-                carouselIndex: 1
+                carouselIndex: state.carouselIndex+1
             }
         default:
             return state;    
