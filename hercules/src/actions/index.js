@@ -57,7 +57,7 @@ export const addExercise = (exdata) => {
 export const getExercise = (exdata) => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata)
+    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata, {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
       dispatch({type: GET_EXERCISE, exercises: response.data})
     })
