@@ -7,8 +7,9 @@ import { goLeft, goRight } from "../actions/homeActions"
 class Home extends React.Component {
   
   componentDidMount() {
-    //this.props.getExercise();
+    this.props.getExercise();
     console.log("props", this.props)
+    console.log("exercises", this.props.exercises)
     console.log("state", this.state)
     console.log("length", this.props.exerciseData.length)
   }
@@ -32,14 +33,13 @@ class Home extends React.Component {
         <img src="./images/hercules-logo.svg" alt="logo"/>
         <h1>Hercules</h1> 
         <p>{this.props.exerciseData[this.props.carouselIndex].name}</p>
-        
 
         {this.props.exerciseData.map( e => (
           <div>{e.name}</div>
         ))}
 
-        <NavLink exact to="/select-excercises">
-        <button>select excercise</button>
+        <NavLink exact to="/select-exercises">
+        <button>select exercise</button>
         </NavLink>
         
         <div>

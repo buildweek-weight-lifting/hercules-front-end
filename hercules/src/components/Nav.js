@@ -26,7 +26,7 @@ class Nav extends React.Component{
           <div className={  this.props.dropped ? "drop-down" : "up"}>
             <NavLink exact to="/tracking">tracking</NavLink>
             <NavLink exact to="/dashboard">Home</NavLink>
-            <NavLink exact to="/add-excercise">Add Excercise</NavLink>
+            <NavLink exact to="/add-exercise">Add Excercise</NavLink>
             <NavLink exact to="/login">Sign Out</NavLink>
           </div>
        

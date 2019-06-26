@@ -25,9 +25,10 @@ const initialState = {
     isFetching:false,
     dropped: false,
     exerciseData: [
-        {name: "curl"},
-        {name: "press"}
+        {name: "notapi"},
+        {name: "test"}
     ],
+    exercises: [],
     carouselIndex: 0,
 }
 
