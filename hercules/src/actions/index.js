@@ -55,6 +55,19 @@ export const addExercise = (exdata) => {
   }
 }
 
+export const deleteExercise = (id) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercises/${id}`)
+      .then(response => {
+        dispatch({type: GET_EXERCISE, exercises: response.data })
+      })
+      .catch(err => {
+        dispatch({type: ERROR_MESSAGE, errorMessage: "This exercise cannot be deleted."})
+      })
+  }
+}
+
 export const getExercise = () => {
   return(dispatch) => {
     dispatch({type: LOADING})
