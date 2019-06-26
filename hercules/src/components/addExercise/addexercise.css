@@ -1,6 +1,170 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@media(max-width: 900px){
+    .addExercise-page{
+        position: relative;
+        max-width: 375px;
+        max-height: 1067px;
+        width: 100%;
+        background-color: #000000;
+        color: #FFFFFF;
+        padding-top: 15px;
+    }
+    .addExercise-page h3{
+        font-size: 14px;
+        font-weight: 500;
+        font-family: "Oswald";
+        font-style: normal;
+        line-height: 21px;
+        text-align: left;
+        padding-left: 13px;
+    }
+    .addExercise-back-btn{
+        background-image: url(../../assets/Go-Back.svg);
+        width: 60px;
+        height: 24px;
+        margin: 5px 0px;
+        cursor: pointer;
+    }
+    .addExerciseHeader{
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        font-family: "Oswald";
+        font-style: normal;
+        font-weight: 500;
+    }
+    .input-title{
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+    }
+    .input-title::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+    }
+    .input-date{
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+    }
+    .input-date::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+    }
 
+    .input-description{
+        width: 339px;
+        height: 129px;
+        background-color: transparent;
+        border: .2px solid grey;
+        color: #FFFFFF;
+        padding-left: 10px;
+        padding-top: 15px;
+    }
+    .input-description::placeholder{
+        font-size: 12px;
+        font-family: "Roboto";
+        line-height: 14px;
+        color: #9c9c9c;
+        text-shadow: 1px solid #323232;
+        
+    }
+
+    .targetRegion-Btns{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 0px auto;
+    }
+
+    .targetRegion-Btns button{
+        width: 106px;
+        height: 43px;
+        background-color: #202020;
+        color: #ffffff;
+        margin: 5px auto;
+        border: none;
+    }
+
+    .addExercise-bottom{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+    .textlifted{
+        text-align: right;
+        position: relative;
+        left: 23px;
+    }
+    .addExercise-bottom input{
+        position: relative;
+        width: 106px;
+        height: 46px;
+        left: 12px;
+    } 
+    .addExercise-bottom .inputReps{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        position: relative;
+        text-align: center;
+        background-color: transparent;
+        border: .1px solid grey;
+        color: #FFFFFF
+    } 
+
+    .addExercise-bottom .inputLifted{
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+        position: relative;
+        left: 5px;
+        text-align: center;
+        background-color: transparent;
+        border: .1px solid grey;
+        color: #ffffff;
+    }
+
+    .customImage{
+        padding-left: 10px;
+        width: 339px;
+        height: 46px;
+        background-color: transparent;
+        border: .1px solid grey;
+        color: #ffffff;
+    }
+
+    .createExerciseBtn{
+        width: 347px;
+        height: 46px;
+        background-color: #FFEC42;
+        color: #000000;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        margin: 20px auto;
+        border: none;
+    }
+}
 
 @media(max-width: 375px){
     .addExercise-page{
