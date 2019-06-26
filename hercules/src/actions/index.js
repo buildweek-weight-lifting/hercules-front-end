@@ -6,7 +6,7 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const GET_USERS = "GET_USERS"
 export const ERROR_MESSAGE = "ERROR_MESSAGE"
 export const LOADING = "LOADING"
-
+export const GET_EXERCISE = "GET_EXERCISE"
 
 export const login = creds => dispatch => {
     dispatch({type:LOGIN_START});
@@ -37,6 +37,15 @@ export const signup = (creds) => {
     }
   }
 
-export const addExercise = () => {
-  return 
+export const addExercise = (exdata) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata)
+    .then( response => {
+      dispatch({type: GET_EXERCISE, exercises: response.data})
+    })
+    .catch(err => {
+      dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
+    })
+  }
 }

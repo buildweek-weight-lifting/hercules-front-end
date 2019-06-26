@@ -4,7 +4,8 @@ import {
     LOGIN_FAILURE,
     GET_USERS,
     ERROR_MESSAGE,
-    LOADING
+    LOADING,
+    GET_EXERCISE
 } from '../actions'
 
 import {
@@ -39,17 +40,19 @@ export const reducer = (state=initialState,action) => {
                 error:action.payload,
                 isLoggingIn:false
             };
-            case GET_USERS:
-                return Object.assign({}, state, {users: action.users, loading: false, error: ''})
-            case ERROR_MESSAGE:
-                return Object.assign({}, state, {error: action.errorMessage, loading: false})
-            case LOADING:
-                return Object.assign({}, state, {loading: true})
+        case GET_USERS:
+            return Object.assign({}, state, {users: action.users, loading: false, error: ''})
+        case ERROR_MESSAGE:
+            return Object.assign({}, state, {error: action.errorMessage, loading: false})
+        case LOADING:
+            return Object.assign({}, state, {loading: true})
         case TOGGLE_DROP:
           return {
               ...state,
               dropped: !state.dropped
           };
+        case GET_EXERCISE:
+            return Object.assign({}, state, {exercises: action.exercises, loading: false, error: ''})
 
         default:
             return state;    

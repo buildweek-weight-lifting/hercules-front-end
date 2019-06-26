@@ -3,6 +3,7 @@ import { login } from '../../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import { withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './login.css'
 
 
@@ -28,10 +29,9 @@ class Login extends React.Component {
 
     loginSubmit = (event) => {
         event.preventDefault()
-        console.log(this.props)
         this.props.login(this.state.credentials)
             .then(() => {
-                this.props.history.push('/')
+                this.props.history.push('/dashboard')
             })
             .catch(err => {
                 console.log(err)
@@ -66,7 +66,7 @@ class Login extends React.Component {
                     <button className="login-btn" onClick={this.loginSubmit}>{this.props.isLoggingIn ? (
                         <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
                     ):( `Let's go!`)} </button>
-                    <div className="login-back-btn"></div>
+                    <NavLink exact to="/"><div className="login-back-btn"></div></NavLink>
                 </form>
                 </div>
             </div>

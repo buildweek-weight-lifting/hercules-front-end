@@ -8,7 +8,7 @@ class Home extends React.Component {
   render () {
     return(
       <div className="Home">
-        <img src="./images/hercules-logo.svg" />
+        <img src="./images/hercules-logo.svg" alt="logo"/>
         <h1>Hercules</h1> 
         <NavLink exact to="/select-excercises">
         <button>select excercise</button>

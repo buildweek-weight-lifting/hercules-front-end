@@ -8,13 +8,15 @@ class AddExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            exercisetitle: '',
-            date: '',
-            description: '',
-            targetRegion: '',
-            amountlifted: '',
-            repititions: '',
-            customimage: ''
+            exercise: {
+                exercisetitle: '',
+                date: '',
+                description: '',
+                targetRegion: '',
+                amountlifted: '',
+                repititions: '',
+                customimage: ''
+            }
         }
     }
 
@@ -22,13 +24,12 @@ class AddExercise extends React.Component{
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state)
     }
 
     submitHandler = (e) => {
         e.preventDefault();
-        this.props.addExercise(this.state);
-        console.log(this.state)
+        this.props.addExercise(this.state.exercise);
+
         this.setState({
             exercisetitle: '',
             date: '',
@@ -65,7 +66,7 @@ class AddExercise extends React.Component{
 
                 <div className="addExercise-bottom">
                     <h3>Repitions</h3>
-                    <h3></h3>
+                    <h3> </h3>
                     <h3 className="textlifted">Amount Lifted</h3>
 
                     <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.repititions} name="repititions" placeholder="00"></input>
