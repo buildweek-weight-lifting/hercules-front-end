@@ -44,7 +44,7 @@ function App() {
             <SignUp />
           )}
         />
-
+        
         <Route
           exact path="/add-exercise"
           render={() => (
