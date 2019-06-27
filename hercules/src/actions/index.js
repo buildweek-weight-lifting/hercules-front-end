@@ -85,9 +85,11 @@ export const getExercise = () => {
 
 export const updateExercise = (updateExercise) => {
   return(dispatch) => {
-    console.log("update action test", updateExercise)
+    console.log("update action test id", updateExercise.id)
     dispatch({type: LOADING})
+
     axios.put(`https://get-hercules.herokuapp.com/api/restricted/exercises/${updateExercise.id}`, updateExercise, {headers: { Authorization: localStorage.getItem("token") } })
+
       .then( response => {
         getExercise()
       })
