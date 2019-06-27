@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateExercise } from '../../actions/index';
+import Nav from "../Nav";
 
 class UpdateExercise extends React.Component{
     constructor(props){
@@ -48,6 +49,7 @@ class UpdateExercise extends React.Component{
     render(){
         return(
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
+            <Nav />
             <h3>Exercise Title</h3>
             <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name}></input>
             <h3>Sets</h3>
