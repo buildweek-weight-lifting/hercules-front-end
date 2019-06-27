@@ -4,6 +4,8 @@ import { addExercise } from '../../actions/index.js';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import './addexercise.css'
+import Nav from "../Nav";
+
 
 let id = localStorage.getItem("id");
 
@@ -30,11 +32,13 @@ class AddExercise extends React.Component{
         e.preventDefault();
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
+        
     }
 
     render(){
         return(
             <div className="addExercise-page">
+                <Nav />
                  <NavLink exact to="/"><div className="addExercise-back-btn"></div></NavLink>
                 <h1 className="addExerciseHeader">ADD A EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>

@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getExercise, deleteExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
+import "./home.css"
+import Nav from "./Nav";
 
 class Home extends React.Component {
   
@@ -40,7 +42,7 @@ class Home extends React.Component {
         <div>
           
           <p>{ this.props.carouselIndex+1 } / {filtered.length } </p>
-         <p>name: {filtered[this.props.carouselIndex].name}</p>
+          <h1>Name: {filtered[this.props.carouselIndex].name}</h1>
          
         </div>
       )
@@ -48,14 +50,19 @@ class Home extends React.Component {
   }
 
   render () {
-    //console.log("storage", localStorage.getItem("id"));
-    //console.log("props", this.props.exercises);
+    
+    console.log("storage", localStorage.getItem("id"));
+    console.log("props exercises", this.props.exercises);
     let userID = parseInt(localStorage.getItem("id"));
-    let filtered = this.props.exercises.filter( e => e.userId === userID);
+    let filtered =[];
+    if(this.props.exercises.length > 0){
+      //window.location.reload();
+      filtered = this.props.exercises.filter( e => e.userId === userID);
+    }
     return(
       
       <div className="Home">
-        <img src="./images/hercules-logo.svg" alt="logo"/>
+        <Nav />
         
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
@@ -67,12 +74,12 @@ class Home extends React.Component {
           <div>{e.id} -- {e.name}</div>
         )) } */}
         <NavLink exact to="/select-exercise">
-        <button>select exercise</button>
+        <h3>select exercise</h3>
         </NavLink>
         
-        <div>
-        <button onClick={() => this.left(filtered)}> left </button>
-        <button onClick={() => this.right(filtered)}> right </button>
+        <div className="carouselButtons">
+        <h3 onClick={() => this.left(filtered)}> left </h3>
+        <h3 onClick={() => this.right(filtered)}> right </h3>
         
         </div>
       </div>

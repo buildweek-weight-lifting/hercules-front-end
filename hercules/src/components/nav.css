@@ -1,5 +1,3 @@
-
-
 .Nav{
   display: flex;
   flex-direction: column;
@@ -15,17 +13,6 @@
 .Nav a{
   text-decoration: none;
   color: grey;
-}
-
-.Home{
-  height: 100%;
-  width: 100%;
-  color: white;
-    background-image: url("../images/dumbell-woman.png"); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;  
 }
 
 .up{

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+
+.Home{
+  font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.rem;
+  height: 100%;
+  width: 100%;
+  color: white;
+    background-image: url("../images/dumbell-woman.png"); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;  
+
+    background: black;
+}
+h3{
+  text-decoration: none;
+  background: #FFEC42;
+  border: 1px solid #FFEC42;
+  border-radius: 4px;
+  color: black;
+  margin: 10px 30%;
+  padding: 6px;
+}
+.carouselButtons{
+  display: flex;
+  justify-content: center;
+}
+
+.carouselButtons h3 {
+  margin: 10px;
+  text-decoration: none;
+}
+

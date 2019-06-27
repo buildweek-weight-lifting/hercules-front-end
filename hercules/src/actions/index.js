@@ -18,6 +18,8 @@ export const login = creds => dispatch => {
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('token',res.data.token)
         dispatch({type:LOGIN_SUCCESS,payload:res.data.payload})
+        console.log("res", res)
+        return true
     })
     .catch(err => {
         dispatch({type:LOGIN_FAILURE,payload:err.response})
@@ -56,7 +58,7 @@ export const addExercise = (exdata) => {
 export const deleteExercise = (id) => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercise/:24`, {headers: { Authorization: localStorage.getItem("token") } })
+    axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercises/${id}`, {headers: { Authorization: localStorage.getItem("token") } })
       .then(response => {
         dispatch({type: GET_EXERCISE, exercises: response.data })
       })

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import "./components.css"
+import "./nav.css"
 import { toggleDrop } from "../actions/NavActions"
 import { connect } from "react-redux";
 
@@ -24,7 +24,11 @@ class Nav extends React.Component{
   
         <div className="mobile-bar">
           <div onClick={this.dropMenu}> menu </div>
-          <div>logo </div>
+          
+          
+          <div>
+          <img src="../../assets/hercules-logo.svg" alt="logo"/>
+          </div>
         </div>
         
         
