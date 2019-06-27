@@ -48,6 +48,7 @@ export const addExercise = (exdata) => {
     {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'}, {headers: { Authorization: localStorage.getItem("id") } })
     .then( response => {
       dispatch({type: GET_EXERCISE, exercises: response.data})
+      
     })
     .catch(err => {
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
@@ -73,14 +74,16 @@ export const getExercise = () => {
     dispatch({type: LOADING})
     axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
-      console.log("response data", response)
+      //console.log("response data", response)
       dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
     .catch(err => {
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
     })
   }
+  
 }
+
 
 export const updateExercise = (updateExercise) => {
   return(dispatch) => {
