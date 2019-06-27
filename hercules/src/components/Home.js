@@ -74,12 +74,12 @@ class Home extends React.Component {
           <div>{e.id} -- {e.name}</div>
         )) } */}
         <NavLink exact to="/select-exercise">
-        <button>select exercise</button>
+        <h3>select exercise</h3>
         </NavLink>
         
-        <div>
-        <button onClick={() => this.left(filtered)}> left </button>
-        <button onClick={() => this.right(filtered)}> right </button>
+        <div className="carouselButtons">
+        <h3 onClick={() => this.left(filtered)}> left </h3>
+        <h3 onClick={() => this.right(filtered)}> right </h3>
         
         </div>
       </div>
