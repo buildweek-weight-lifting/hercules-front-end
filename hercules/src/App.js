@@ -9,7 +9,7 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Tracking from "./components/TrackingPage";
 //import AddExcercise from "./components/AddExcercise";
-import SelectExercises from "./components/SelectExercises";
+import SelectExercise from "./components/SelectExercise";
 import AddExercise from './components/addExercise/addExercise';
 import Selection from "./components/Selection"
 
@@ -58,7 +58,7 @@ function App() {
         <Route
           exact path="/select-exercises"
           render={() => (
-            <SelectExercises />
+            <SelectExercise />
           )}
         />
 
