@@ -84,19 +84,6 @@ export const getExercise = () => {
   
 }
 
-export const deleteExercise = (id) => {
-  return(dispatch) => {
-    dispatch({type: LOADING})
-    axios.delete('https://get-hercules.herokuapp.com/api/restricted/exercises/:id', id, {headers: { Authorization: localStorage.getItem("token") } })
-    .then( response => {
-      console.log("response data", response)
-      dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
-    })
-    .catch(err => {
-      dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
-    })
-  }
-}
 
 export const updateExercise = (updateExercise) => {
   return(dispatch) => {

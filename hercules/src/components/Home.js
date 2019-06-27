@@ -65,7 +65,9 @@ class Home extends React.Component {
           
           <div>{e.id} -- {e.name}</div>
         )) } */}
-
+        <NavLink exact to="/select-exercise">
+        <button>select exercise</button>
+        </NavLink>
         
         <div>
         <button onClick={() => this.left(filtered)}> left </button>
@@ -77,9 +79,7 @@ class Home extends React.Component {
   }
 }
 /*
-<NavLink exact to="/select-exercises">
-<button>select exercise</button>
-</NavLink>
+
 */
 const mapStateToProps = state => ({
   exercises: state.exercises,
