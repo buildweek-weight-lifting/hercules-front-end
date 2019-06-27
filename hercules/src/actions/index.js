@@ -58,6 +58,7 @@ export const addExercise = (exdata) => {
 
 export const deleteExercise = (id) => {
   return(dispatch) => {
+    console.log("id in actions", id)
     dispatch({type: LOADING})
     axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercise/:${id}`, {headers: { Authorization: localStorage.getItem("token") } })
       .then(response => {

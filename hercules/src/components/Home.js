@@ -14,6 +14,7 @@ class Home extends React.Component {
     console.log("id", this.props.exercises[this.props.carouselIndex].id);
     this.props.deleteExercise(this.props.exercises[this.props.carouselIndex].id);
   }
+
   left = () => {
     //console.log("props", this.props)
     //console.log("state", this.state)
@@ -49,16 +50,14 @@ class Home extends React.Component {
 
   render () {
     //console.log("storage", localStorage.getItem("id"));
-    console.log("props", this.props.exercises);
-    let id = parseInt(localStorage.getItem('id'))
-    let filtered = this.props.exercises.filter( e => e.userId === id);
-
- 
+    //console.log("props", this.props.exercises);
+    let userID = parseInt(localStorage.getItem("id"));
+    let filtered = this.props.exercises.filter( e => e.userId === userID);
     return(
       
       <div className="Home">
         <img src="./images/hercules-logo.svg" alt="logo"/>
-        <button onClick={this.delete}>delete</button>
+        
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
         {this.testRender(filtered)}

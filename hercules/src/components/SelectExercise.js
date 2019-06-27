@@ -1,5 +1,5 @@
 import React from "react";
-import { getExercise } from "../actions/index"
+import { getExercise, deleteExercise } from "../actions/index"
 import { connect } from "react-redux";
 import './selectExercise.css';
 import { NavLink } from 'react-router-dom';
@@ -12,9 +12,16 @@ class SelectExercise extends React.Component {
     this.props.getExercise();
   }
 
+  delete = () => {
+    let sendId = this.props.exercises[this.props.carouselIndex].id;
+    console.log("id", sendId);
+    this.props.deleteExercise(sendId);
+  }
+
   testRender = (filtered) => {
     if(filtered <= 0){
-      return <h1>(No Exercises)</h1>  
+      console.log("filtered", filtered)
+      return <h1>(No Exercises)</h1>
     }
     else{
       //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
@@ -30,10 +37,15 @@ class SelectExercise extends React.Component {
   }
 
   render(){
-    let id = parseInt(localStorage.getItem('id'))
-    let filtered = this.props.exercises.filter( e => e.userId === id);
+    console.log("props in select", this.props.exercises)
+    console.log("select id", localStorage.getItem("id"));
+    let userID = parseInt(localStorage.getItem("id"));
+    let filtered = this.props.exercises.filter( e => e.userId === userID);
+    //console.log("filtered", filtered)
     return(
       <div className="Home">
+        <button onClick={this.delete}>delete</button>
+        
         {this.testRender(filtered)}
         <NavLink exact to="/dashboard">
         <button>back</button>
@@ -52,7 +64,7 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getExercise }
+  { getExercise, deleteExercise }
 )(SelectExercise);
 
 
