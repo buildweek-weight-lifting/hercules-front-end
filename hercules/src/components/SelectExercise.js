@@ -6,23 +6,21 @@ import { NavLink } from 'react-router-dom';
 
 class SelectExercise extends React.Component {
 
+  
+
   componentDidMount() {
     this.props.getExercise();
-    
   }
 
   testRender = (filtered) => {
     if(filtered <= 0){
-      return <h1>(No Exercises)</h1>
+      return <h1>(No Exercises)</h1>  
     }
     else{
       //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
-      console.log("filtered", filtered)
+
       return (
-        
         <div>
-          { }
-        
           <p>name: {filtered[this.props.carouselIndex].name}</p>
           <p>reps: {filtered[this.props.carouselIndex].reps}</p>
           <p>weight: {filtered[this.props.carouselIndex].weight}</p>
@@ -32,8 +30,8 @@ class SelectExercise extends React.Component {
   }
 
   render(){
-    console.log("props in select", this.props.exercises)
-    let filtered = this.props.exercises.filter( e => e.userId === 8);
+    let id = parseInt(localStorage.getItem('id'))
+    let filtered = this.props.exercises.filter( e => e.userId === id);
     return(
       <div className="Home">
         {this.testRender(filtered)}

@@ -7,13 +7,12 @@ import { goLeft, goRight } from "../actions/homeActions"
 class Home extends React.Component {
   
   componentDidMount() {
-    
     this.props.getExercise();
     
   }
   delete = () => {
     console.log("id", this.props.exercises[this.props.carouselIndex].id);
-    this.props.deleteExercise(this.props.exercises.id);
+    this.props.deleteExercise(this.props.exercises[this.props.carouselIndex].id);
   }
   left = () => {
     //console.log("props", this.props)
@@ -51,8 +50,12 @@ class Home extends React.Component {
   render () {
     //console.log("storage", localStorage.getItem("id"));
     console.log("props", this.props.exercises);
-    let filtered = this.props.exercises.filter( e => e.userId === 8);
+    let id = parseInt(localStorage.getItem('id'))
+    let filtered = this.props.exercises.filter( e => e.userId === id);
+
+ 
     return(
+      
       <div className="Home">
         <img src="./images/hercules-logo.svg" alt="logo"/>
         <button onClick={this.delete}>delete</button>
