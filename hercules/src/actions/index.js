@@ -83,8 +83,9 @@ export const getExercise = () => {
 
 export const updateExercise = (updateExercise) => {
   return(dispatch) => {
+    console.log("update action test", updateExercise)
     dispatch({type: LOADING})
-    axios.put(`http://localhost:3333/smurfs/${updateExercise.id}`, updateExercise)
+    axios.put(`https://get-hercules.herokuapp.com/api/restricted/exercise/:22`, updateExercise)
       .then( response => {
         dispatch({type: GET_EXERCISE, smurfs: response.data})
       })

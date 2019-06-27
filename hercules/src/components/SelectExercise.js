@@ -10,22 +10,19 @@ class SelectExercise extends React.Component {
 
   componentDidMount() {
     this.props.getExercise();
+
   }
 
   delete = () => {
     let sendId = this.props.exercises[this.props.carouselIndex].id;
-    console.log("id", sendId);
     this.props.deleteExercise(sendId);
   }
 
   testRender = (filtered) => {
     if(filtered <= 0){
-      console.log("filtered", filtered)
       return <h1>(No Exercises)</h1>
     }
     else{
-      //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
-
       return (
         <div>
           <p>name: {filtered[this.props.carouselIndex].name}</p>
@@ -37,15 +34,13 @@ class SelectExercise extends React.Component {
   }
 
   render(){
-    console.log("props in select", this.props.exercises)
-    console.log("select id", localStorage.getItem("id"));
     let userID = parseInt(localStorage.getItem("id"));
     let filtered = this.props.exercises.filter( e => e.userId === userID);
-    //console.log("filtered", filtered)
+    console.log("exercises", this.props.exercises)
     return(
       <div className="Home">
         <button onClick={this.delete}>delete</button>
-        <NavLink exact to="/update-exercise">
+        <NavLink exact to={`/update-exercise`}>
         <button>update</button>
         </NavLink>
         
