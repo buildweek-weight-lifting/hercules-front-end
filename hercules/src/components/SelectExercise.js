@@ -3,6 +3,7 @@ import { getExercise, deleteExercise } from "../actions/index"
 import { connect } from "react-redux";
 import './selectExercise.css';
 import { NavLink } from 'react-router-dom';
+import Nav from "./Nav";
 
 class SelectExercise extends React.Component {
 
@@ -44,6 +45,7 @@ class SelectExercise extends React.Component {
     //console.log("filtered", filtered)
     return(
       <div className="Home">
+        <Nav />
         <button onClick={this.delete}>delete</button>
         <NavLink exact to="/update-exercise">
         <button>update</button>

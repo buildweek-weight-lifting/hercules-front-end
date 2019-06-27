@@ -4,7 +4,7 @@ import Login from './components/auth/login'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SignUp from './components/auth/signup'
 import Home from "./components/Home";
-import Nav from "./components/Nav";
+
 import Tracking from "./components/TrackingPage";
 import SelectExercise from "./components/SelectExercise";
 import AddExercise from './components/addExercise/addExercise';
@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div className="App">
 
-        <Nav />
+        
 
         <Route
           exact path="/dashboard"

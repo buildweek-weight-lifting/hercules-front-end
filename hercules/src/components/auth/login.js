@@ -30,8 +30,11 @@ class Login extends React.Component {
     loginSubmit = (event) => {
         event.preventDefault()
         this.props.login(this.state.credentials)
-            .then(() => {
-                this.props.history.push('/dashboard')
+            .then(res => {
+                
+                if(res){
+                    this.props.history.push('/dashboard')
+                }    
             })
             .catch(err => {
                 console.log(err)

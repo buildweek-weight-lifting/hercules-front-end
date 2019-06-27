@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getExercise, deleteExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
 import "./home.css"
+import Nav from "./Nav";
 
 class Home extends React.Component {
   
@@ -49,14 +50,19 @@ class Home extends React.Component {
   }
 
   render () {
-    //console.log("storage", localStorage.getItem("id"));
-    //console.log("props", this.props.exercises);
+    
+    console.log("storage", localStorage.getItem("id"));
+    console.log("props exercises", this.props.exercises);
     let userID = parseInt(localStorage.getItem("id"));
-    let filtered = this.props.exercises.filter( e => e.userId === userID);
+    let filtered =[];
+    if(this.props.exercises.length > 0){
+      //window.location.reload();
+      filtered = this.props.exercises.filter( e => e.userId === userID);
+    }
     return(
       
       <div className="Home">
-        
+        <Nav />
         
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
