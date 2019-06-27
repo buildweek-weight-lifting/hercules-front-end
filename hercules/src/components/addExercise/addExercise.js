@@ -7,14 +7,14 @@ import './addexercise.css'
 import Nav from "../Nav";
 
 
-let id = localStorage.getItem("id");
+//let id = localStorage.getItem("id");
 
 class AddExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-                journalId: id * Math.floor(Math.random() * 100000) + 1,
-                userId: id,
+                journalId: localStorage.getItem("id") * Math.floor(Math.random() * 100000) + 1,
+                userId: localStorage.getItem("id"),
                 name: '',
                 reps: '',
                 sets: '',
@@ -30,12 +30,14 @@ class AddExercise extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
+        console.log("add ex userid", this.state.id)
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
         
     }
 
     render(){
+        
         return(
             <div className="addExercise-page">
                 <Nav />
