@@ -29,7 +29,7 @@ class AddExercise extends React.Component{
     submitHandler = (e) => {
         e.preventDefault();
         this.props.addExercise(this.state);
-        console.log(this.state)
+        this.props.history.push('/dashboard')
     }
 
     render(){
@@ -77,4 +77,4 @@ class AddExercise extends React.Component{
     }
 }
 
-export default connect( ()=>({}), {addExercise})(AddExercise);
+export default withRouter(connect( ()=>({}), {addExercise})(AddExercise));

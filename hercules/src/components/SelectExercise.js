@@ -6,9 +6,10 @@ import { NavLink } from 'react-router-dom';
 
 class SelectExercise extends React.Component {
 
+  
+
   componentDidMount() {
     this.props.getExercise();
-    
   }
 
   delete = () => {
@@ -24,12 +25,9 @@ class SelectExercise extends React.Component {
     }
     else{
       //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
-      console.log("filtered", filtered)
+
       return (
-        
         <div>
-          { }
-        
           <p>name: {filtered[this.props.carouselIndex].name}</p>
           <p>reps: {filtered[this.props.carouselIndex].reps}</p>
           <p>weight: {filtered[this.props.carouselIndex].weight}</p>
