@@ -56,6 +56,19 @@ export const addExercise = (exdata) => {
   }
 }
 
+export const deleteExercise = (id) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercises/${id}`)
+      .then(response => {
+        dispatch({type: GET_EXERCISE, exercises: response.data })
+      })
+      .catch(err => {
+        dispatch({type: ERROR_MESSAGE, errorMessage: "This exercise cannot be deleted."})
+      })
+  }
+}
+
 export const getExercise = () => {
   return(dispatch) => {
     dispatch({type: LOADING})
@@ -82,5 +95,18 @@ export const deleteExercise = (id) => {
     .catch(err => {
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
     })
+  }
+}
+
+export const updateExercise = (updateExercise) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.put(`http://localhost:3333/smurfs/${updateExercise.id}`, updateExercise)
+      .then( response => {
+        dispatch({type: GET_EXERCISE, smurfs: response.data})
+      })
+      .catch(err => {
+        dispatch({type: ERROR_MESSAGE, errorMessage: `This exercise can't be updated.`})
+      })
   }
 }
