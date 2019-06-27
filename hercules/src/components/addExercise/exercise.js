@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Exercise = (props) => {
     return(
         <div>
-            <Link to = {`/exercises/${props.exercise.id}`}>
-                <h1>{props.exercise.name}</h1>
+            <Link to = {`/exercises/${props.exercises.id}`}>
+                <h1>{props.exercises.name}</h1>
             </Link>
         </div>
     )
