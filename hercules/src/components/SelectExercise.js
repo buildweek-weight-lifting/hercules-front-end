@@ -37,7 +37,6 @@ class SelectExercise extends React.Component {
   render(){
     let userID = parseInt(localStorage.getItem("id"));
     let filtered = this.props.exercises.filter( e => e.userId === userID);
-    console.log("exercises", this.props.exercises)
     return(
       <div className="Home">
         <Nav />
