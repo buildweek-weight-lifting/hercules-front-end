@@ -28,12 +28,6 @@ class AddExercise extends React.Component{
     submitHandler = (e) => {
         e.preventDefault();
         this.props.addExercise(this.state);
-        // this.setState({
-        //     name: '',
-        //     reps: '',
-        //     sets: '',
-        //     weight: ''
-        // })
         console.log(this.state)
     }
 

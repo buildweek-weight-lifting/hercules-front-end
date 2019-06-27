@@ -13,6 +13,11 @@ class Nav extends React.Component{
     //console.log("prop drop", this.props.dropped);
   }
   
+  clearToken = () =>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+  }
+
   render(){
     return(
       <div className="Nav">
@@ -27,7 +32,7 @@ class Nav extends React.Component{
             <NavLink exact to="/tracking">tracking</NavLink>
             <NavLink exact to="/dashboard">Home</NavLink>
             <NavLink exact to="/add-exercise">Add Excercise</NavLink>
-            <NavLink exact to="/login">Sign Out</NavLink>
+            <NavLink onClick={this.clearToken} exact to="/">Sign Out</NavLink>
           </div>
        
 

@@ -81,3 +81,16 @@ export const getExercise = () => {
     })
   }
 }
+
+export const updateExercise = (updateExercise) => {
+  return(dispatch) => {
+    dispatch({type: LOADING})
+    axios.put(`http://localhost:3333/smurfs/${updateExercise.id}`, updateExercise)
+      .then( response => {
+        dispatch({type: GET_EXERCISE, smurfs: response.data})
+      })
+      .catch(err => {
+        dispatch({type: ERROR_MESSAGE, errorMessage: `This exercise can't be updated.`})
+      })
+  }
+}
