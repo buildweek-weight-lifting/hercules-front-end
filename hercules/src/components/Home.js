@@ -56,7 +56,7 @@ class Home extends React.Component {
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
         {this.testRender(filtered)}
     
-    {/* 
+{/*     
         {this.props.exercises.map( e => (
           
           <div>{e.id} -- {e.name}</div>
