@@ -45,6 +45,9 @@ class SelectExercise extends React.Component {
     return(
       <div className="Home">
         <button onClick={this.delete}>delete</button>
+        <NavLink exact to="/update-exercise">
+        <button>update</button>
+        </NavLink>
         
         {this.testRender(filtered)}
         <NavLink exact to="/dashboard">
