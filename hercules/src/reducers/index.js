@@ -65,7 +65,7 @@ export const reducer = (state=initialState,action) => {
           };
         case GET_EXERCISE:
             return Object.assign({}, state, {exercises: action.exercises, loading: false, error: ''})
-            
+   
         case LEFT:
             return{
                 ...state,

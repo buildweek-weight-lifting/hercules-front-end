@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
-import { getExercise } from "../actions/index"
+import { getExercise, deleteExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
 
 class Home extends React.Component {
@@ -11,7 +11,10 @@ class Home extends React.Component {
     this.props.getExercise();
     
   }
-
+  delete = () => {
+    console.log("id", this.props.exercises[this.props.carouselIndex].id);
+    this.props.deleteExercise(this.props.exercises.id);
+  }
   left = () => {
     //console.log("props", this.props)
     //console.log("state", this.state)
@@ -31,14 +34,14 @@ class Home extends React.Component {
     }
     else{
       //this.setState({filtered: this.props.exercises.filter( e => e.userId === 2)}); 
-      console.log("filtered", filtered)
+      //console.log("filtered", filtered)
       return (
         
         <div>
-          { }
-        
-          <p>name: {filtered[this.props.carouselIndex].name}</p>
-          <p>reps: {filtered[this.props.carouselIndex].reps}</p>
+          
+          <p>{ this.props.carouselIndex+1 }</p>
+         <p>name: {filtered[this.props.carouselIndex].name}</p>
+         <p>reps: {filtered[this.props.carouselIndex].reps}</p>
           <p>weight: {filtered[this.props.carouselIndex].weight}</p>
         </div>
       )
@@ -46,12 +49,13 @@ class Home extends React.Component {
   }
 
   render () {
-    console.log("storage", localStorage.getItem("id"));
-    console.log("props", this.props.exercises)
-    let filtered = this.props.exercises.filter( e => e.userId === localStorage.getItem("id"));
+    //console.log("storage", localStorage.getItem("id"));
+    console.log("props", this.props.exercises);
+    let filtered = this.props.exercises.filter( e => e.userId === 8);
     return(
       <div className="Home">
         <img src="./images/hercules-logo.svg" alt="logo"/>
+        <button onClick={this.delete}>delete</button>
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
         {this.testRender(filtered)}
@@ -61,20 +65,22 @@ class Home extends React.Component {
           
           <div>{e.id} -- {e.name}</div>
         )) } */}
-
-        <NavLink exact to="/select-exercises">
+        <NavLink exact to="/select-exercise">
         <button>select exercise</button>
         </NavLink>
         
         <div>
-        <button onClick={() => this.left(filtered)}>left</button>
-        <button onClick={() => this.right(filtered)}>right</button>
+        <button onClick={() => this.left(filtered)}> left </button>
+        <button onClick={() => this.right(filtered)}> right </button>
+        
         </div>
       </div>
     );
   }
 }
+/*
 
+*/
 const mapStateToProps = state => ({
   exercises: state.exercises,
   exerciseData: state.exerciseData,
@@ -83,5 +89,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getExercise, goLeft, goRight }
+  { getExercise, deleteExercise, goLeft, goRight }
 )(Home);

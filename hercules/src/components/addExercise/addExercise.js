@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addExercise } from '../../actions/index.js';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './addexercise.css'
 
 let id = localStorage.getItem("id");
@@ -69,6 +70,7 @@ class AddExercise extends React.Component{
                     <input className="customImage" type="text" onChange={this.inputHandler} value={this.state.customimage} name="customimage" placeholder={`e.g https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/54522892_2244978498879256_1520327382362226688_n.jpg?_nc_cat=107&_nc_oc=AQkQKlS0mvrneVJtmCAgr2s0h8UApsxyzP7S02YoakMWFWKKCuwCj4a8c5REpm8IaLKyEUtoqbgb4aPwqE1jDp0A&_nc_ht=scontent-lga3-1.xx&oh=04f951dea2ad9f552d80f302e2152369&oe=5DC41051`}></input>
                 </div>
                 <button className="createExerciseBtn">Create exercise!</button>
+                
             </form>
             </div>
         )
