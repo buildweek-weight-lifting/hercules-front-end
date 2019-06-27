@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
 import { getExercise, deleteExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
+import "./home.css"
 
 class Home extends React.Component {
   
@@ -40,7 +41,7 @@ class Home extends React.Component {
         <div>
           
           <p>{ this.props.carouselIndex+1 } / {filtered.length } </p>
-         <p>name: {filtered[this.props.carouselIndex].name}</p>
+          <h1>Name: {filtered[this.props.carouselIndex].name}</h1>
          
         </div>
       )
@@ -55,7 +56,7 @@ class Home extends React.Component {
     return(
       
       <div className="Home">
-        <img src="./images/hercules-logo.svg" alt="logo"/>
+        
         
         <h1>Hercules</h1> 
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
