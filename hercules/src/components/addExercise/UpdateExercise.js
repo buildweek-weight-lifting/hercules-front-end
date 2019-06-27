@@ -9,7 +9,10 @@ class UpdateExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            id: this.props.exercises[this.props.carouselIndex].id + 1,
+            exercise: this.props.exercises[this.props.carouselIndex].exercise,
+            id: this.props.exercises[this.props.carouselIndex].id,
+            journalId: this.props.exercises[this.props.carouselIndex].journalId,
+            userId: this.props.exercises[this.props.carouselIndex].userId,
             name: '',
             reps: '',
             sets: '',
@@ -17,14 +20,7 @@ class UpdateExercise extends React.Component{
         }
     }
 
-    
-    componentDidMount(){
-        
-        const exercise = this.props.exercises.id;
-        this.setState({
-            exercise: exercise
-        })
-    }
+
 
     inputHandler = (e) => {
         this.setState({
@@ -36,11 +32,10 @@ class UpdateExercise extends React.Component{
         e.preventDefault();
         this.props.updateExercise(this.state);
         this.props.history.push('/dashboard');
+
     }
 
     render(){
-        let idex = this.props.exercises[this.props.carouselIndex];
-        console.log("test id", this.state)
         return(
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
             <Nav />
