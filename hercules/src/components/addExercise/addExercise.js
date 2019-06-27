@@ -30,6 +30,7 @@ class AddExercise extends React.Component{
         e.preventDefault();
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
+        window.location.reload();
     }
 
     render(){
