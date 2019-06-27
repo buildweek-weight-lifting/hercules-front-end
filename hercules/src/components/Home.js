@@ -41,8 +41,7 @@ class Home extends React.Component {
           
           <p>{ this.props.carouselIndex+1 } / {filtered.length } </p>
          <p>name: {filtered[this.props.carouselIndex].name}</p>
-         <p>reps: {filtered[this.props.carouselIndex].reps}</p>
-          <p>weight: {filtered[this.props.carouselIndex].weight}</p>
+         
         </div>
       )
     }

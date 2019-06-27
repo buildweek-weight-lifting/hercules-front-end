@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
-import Login from './components/auth/Login'
+import Login from './components/auth/login'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import SignUp from './components/auth/Signup'
+import SignUp from './components/auth/signup'
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Tracking from "./components/TrackingPage";
 import SelectExercise from "./components/SelectExercise";
 import AddExercise from './components/addExercise/addExercise';
+import UpdateExercise from './components/addExercise/UpdateExercise';
 import Selection from "./components/Selection"
 
 function App() {
@@ -58,6 +59,15 @@ function App() {
             <SelectExercise />
           )}
         />
+
+        <Route
+          exact path="/update-exercise"
+          render={() => (
+            <UpdateExercise />
+          )}
+        />
+
+        
 
           <Route
           exact path="/"
