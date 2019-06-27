@@ -23,7 +23,6 @@ export const login = creds => dispatch => {
     })
     .catch(err => {
         dispatch({type:LOGIN_FAILURE,payload:err.response})
-        console.log(err)
     })
 }
 
@@ -43,7 +42,6 @@ export const signup = (creds) => {
 
 export const addExercise = (exdata) => {
   return(dispatch) => {
-    console.log("exdata check", exdata)
     dispatch({type: LOADING})
     axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata,
     {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'}, {headers: { Authorization: localStorage.getItem("id") } })
@@ -59,7 +57,6 @@ export const addExercise = (exdata) => {
 
 export const deleteExercise = (id) => {
   return(dispatch) => {
-    console.log("id in actions", id)
     dispatch({type: LOADING})
     axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercises/${id}`, {headers: { Authorization: localStorage.getItem("token") } })
       .then(response => {
@@ -76,7 +73,6 @@ export const getExercise = () => {
     dispatch({type: LOADING})
     axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
-      //console.log("response data", response)
       dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
     .catch(err => {
@@ -89,8 +85,9 @@ export const getExercise = () => {
 
 export const updateExercise = (updateExercise) => {
   return(dispatch) => {
+    console.log("update action test", updateExercise)
     dispatch({type: LOADING})
-    axios.put(`http://localhost:3333/smurfs/${updateExercise.id}`, updateExercise)
+    axios.put(`https://get-hercules.herokuapp.com/api/restricted/exercise/:22`, updateExercise)
       .then( response => {
         dispatch({type: GET_EXERCISE, smurfs: response.data})
       })

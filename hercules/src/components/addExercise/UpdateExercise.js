@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './addexercise.css'
 import { updateExercise } from '../../actions/index';
+import { withRouter } from 'react-router-dom';
 import Nav from "../Nav";
 
 class UpdateExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            id: this.props.exercises[this.props.carouselIndex].id + 1,
             name: '',
             reps: '',
             sets: '',
@@ -14,8 +17,10 @@ class UpdateExercise extends React.Component{
         }
     }
 
+    
     componentDidMount(){
-        const exercise = this.props.exercise.find(item => `${item.id}` === this.props.match.params.id);
+        
+        const exercise = this.props.exercises.id;
         this.setState({
             exercise: exercise
         })
@@ -29,24 +34,13 @@ class UpdateExercise extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault();
-        const updateExercise = {
-            name: this.state.name,
-            age: this.state.reps,
-            height: this.state.sets,
-            id: this.state.weight
-        }
-        console.log("updated exercise is", updateExercise);
-        this.props.updateExercise(updateExercise);
-        this.setState({
-            name: '',
-            reps: '',
-            sets: '',
-            weight: ''
-        })
+        this.props.updateExercise(this.state);
         this.props.history.push('/dashboard');
     }
 
     render(){
+        let idex = this.props.exercises[this.props.carouselIndex];
+        console.log("test id", this.state)
         return(
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
             <Nav />
@@ -90,7 +84,8 @@ class UpdateExercise extends React.Component{
 const mapStateToProps = (state) => {
     return {
     exercises: state.exercises,
+    carouselIndex: state.carouselIndex
     }
   };
 
-export default connect(mapStateToProps, {UpdateExercise})(UpdateExercise);
+export default withRouter(connect(mapStateToProps, {updateExercise})(UpdateExercise));
