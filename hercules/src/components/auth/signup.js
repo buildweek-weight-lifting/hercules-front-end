@@ -59,7 +59,8 @@ class SignUp extends React.Component {
                         placeholder="username"
                         type="string"
                         value={this.state.credentials.username}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <input
                         className="firstname-field"
@@ -67,7 +68,8 @@ class SignUp extends React.Component {
                         placeholder="first name"
                         type="string"
                         value={this.state.credentials.firstName}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <input
                         className="lastname-field"
@@ -75,7 +77,8 @@ class SignUp extends React.Component {
                         placeholder="last name"
                         type="string"
                         value={this.state.credentials.lastName}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <input
                         className="email-field"
@@ -83,7 +86,8 @@ class SignUp extends React.Component {
                         name='email'
                         placeholder="email address"
                         value={this.state.credentials.email}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <input
                         className="password-field"
@@ -91,7 +95,8 @@ class SignUp extends React.Component {
                         name='password'
                         placeholder="password"
                         value={this.state.credentials.password}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     
                     <button className="signup-btn" onClick={this.signupSubmit}>{this.props.isLoggingIn ? (

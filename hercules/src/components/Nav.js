@@ -23,20 +23,20 @@ class Nav extends React.Component{
       <div className="Nav">
   
         <div className="mobile-bar">
-          <div onClick={this.dropMenu}> menu </div>
+          <div className="menu-burger" onClick={this.dropMenu}> </div>
           
           
-          <div>
-          <img src="../../assets/hercules-logo.svg" alt="logo"/>
-          </div>
+          <div className="menu-logo"></div>
+
+          <div className="menu-profile"></div>
         </div>
         
         
           <div className={  this.props.dropped ? "drop-down" : "up"}>
             
-            <NavLink exact to="/dashboard">Home</NavLink>
-            <NavLink exact to="/add-exercise">Add Excercise</NavLink>
-            <NavLink onClick={this.clearToken} exact to="/">Sign Out</NavLink>
+            <NavLink className="nav-links nav-link-home" exact to="/dashboard">Home</NavLink>
+            <NavLink className="nav-links" exact to="/add-exercise">Add Excercise</NavLink>
+            <NavLink className="nav-links" onClick={this.clearToken} exact to="/">Sign Out</NavLink>
           </div>
        
 
