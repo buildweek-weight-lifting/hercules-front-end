@@ -16,7 +16,9 @@ class SelectExercise extends React.Component {
   }
 
   delete = (filtered) => {
+    console.log("filtered", filtered)
     let sendId = filtered[this.props.carouselIndex].id;
+    console.log("ex id", sendId)
     this.props.deleteExercise(sendId);
   }
 
@@ -37,11 +39,21 @@ class SelectExercise extends React.Component {
 
   render(){
     let userID = parseInt(localStorage.getItem("id"));
-    let filtered = this.props.exercises.filter( e => e.userId === userID);
+
+    console.log("user id", localStorage.getItem("id"))
+    //let filtered = this.props.exercises.filter( e => e.userId === userID);
+    let filtered =[];
+    if(this.props.exercises.length > 0){
+      //window.location.reload();
+      filtered = this.props.exercises.filter( e => e.userId === userID);
+    }
+    console.log("exercises", this.props.exercises)
+
     return(
       <div className="Home">
         <Nav />
-        <h3 onClick={ ()=>this.delete(filtered)}>delete</h3>
+
+        <h3 onClick={() => this.delete(filtered)}>delete</h3>
         <NavLink exact to="/update-exercise">
         <h3>update</h3>
         </NavLink>
