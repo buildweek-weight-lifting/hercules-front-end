@@ -69,7 +69,7 @@
 
   .carouselButtons{
     position: relative;
-    top: 355px;
+    top: 335px;
     left: 235px;
     z-index: +1;
   }
@@ -90,28 +90,29 @@
     width: 40px;
     height: 40px;
     background: #FFEC42;
-    border-radius: 20px;
+    border-radius: 1px;
     color: black;
-  
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 calc(50% - 30px);
+    position: relative;
+    top: 115px !important;
+    right: 10px !important;
   }
 
-.count{
+/* .count{
   font-size: .8rem;
   width: 40px;
   height: 40px;
   background: #FFEC42;
   border-radius: 20px;
   color: black;
- 
+
   display: flex;
   justify-content: center;
   align-items: center;
   
-}
+} */
 
   .btn-right{
     background-image: url(../assets/arrow-up.svg);

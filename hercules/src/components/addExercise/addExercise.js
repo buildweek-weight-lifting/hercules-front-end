@@ -41,7 +41,7 @@ class AddExercise extends React.Component{
         return(
             <div className="addExercise-page">
                 <Nav />
-                 <NavLink exact to="/"><div className="addExercise-back-btn"></div></NavLink>
+                 <NavLink exact to="/dashboard"><div className="addExercise-back-btn"></div></NavLink>
                 <h1 className="addExerciseHeader">ADD A EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
