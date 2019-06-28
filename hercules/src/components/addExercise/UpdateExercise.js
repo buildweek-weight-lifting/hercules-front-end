@@ -21,14 +21,14 @@ class UpdateExercise extends React.Component{
 
       
 
-    // componentDidMount() {
-    //     let userID = parseInt(localStorage.getItem("id"));
-    //     let filtered = this.props.exercises.filter( e => e.userId === userID);
-    //         this.setState({
-    //             id: filtered[this.props.carouselIndex].id,
-    //             journalId: filtered[this.props.carouselIndex].journalId
-    //         })
-    // }
+    componentDidMount() {
+        let userID = parseInt(localStorage.getItem("id"));
+        let filtered = this.props.exercises.filter( e => e.userId === userID);
+            this.setState({
+                id: filtered[this.props.carouselIndex].id,
+                journalId: filtered[this.props.carouselIndex].journalId
+            })
+    }
 
 
 
@@ -40,7 +40,12 @@ class UpdateExercise extends React.Component{
     }
 
     submitHandler = (e) => {
+        console.log("sub e", e);
+        
+        console.log("state id", this.state.id);
+        console.log("state journo id", this.state.journalId);
         e.preventDefault();
+        
         this.props.updateExercise(this.state);
         this.props.history.push('/dashboard');
         console.log("state id", this.state)
@@ -48,7 +53,7 @@ class UpdateExercise extends React.Component{
     }
 
     render(){
- 
+        
         return(
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
             <Nav />
