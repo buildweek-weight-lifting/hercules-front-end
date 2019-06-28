@@ -11,8 +11,8 @@ class UpdateExercise extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            id: this.props.exercises[this.props.carouselIndex].id,
-            journalId: this.props.exercises[this.props.carouselIndex].journalId,
+            id: 0,
+            journalId: 0,
             userId: localStorage.getItem('id'),
             name: '',
             reps: '',
@@ -25,19 +25,26 @@ class UpdateExercise extends React.Component{
 
     componentDidMount() {
         let userID = parseInt(localStorage.getItem("id"));
-        let filtered = this.props.exercises.filter( e => e.userId === userID);
-            var today = new Date();
-            var dd = String(today.getDate()).padStart(2, '0');
-            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-            var yyyy = today.getFullYear();
-            today = mm + '/' + dd + '/' + yyyy; 
+        //let filtered = this.props.exercises.filter( e => e.userId === userID);
+        let filtered =[];
+        //
+        if( this.props.exercises  && this.props.exercises.length > 0){
+          filtered = this.props.exercises.filter( e => e.userId === userID);
+          var today = new Date();
+          var dd = String(today.getDate()).padStart(2, '0');
+          var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+          var yyyy = today.getFullYear();
+          today = mm + '/' + dd + '/' + yyyy;
         
         this.setState({
                 id: filtered[this.props.carouselIndex].id,
                 journalId: filtered[this.props.carouselIndex].journalId,
-                reps: today
+                name: filtered[this.props.carouselIndex].name,
+                reps: today,
+                sets: filtered[this.props.carouselIndex].sets,
+                weight: filtered[this.props.carouselIndex].weight             
             })
-
+        }
     }
 
 
@@ -64,7 +71,7 @@ class UpdateExercise extends React.Component{
     }
 
     render(){
-        
+        console.log("update props", this.props.exercises)
         return(
             <div className="addExercise-page">
             <Nav />

@@ -34,7 +34,7 @@ class SelectExercise extends React.Component {
       return (
         <div className="exercise-info">
           <p>Exercise: {filtered[this.props.carouselIndex].name}</p>
-          <p>Entered: {filtered[this.props.carouselIndex].reps}</p>
+          <p>Last Updated: {filtered[this.props.carouselIndex].reps}</p>
           <p>Region: {filtered[this.props.carouselIndex].sets}</p>
           <p>Weight: {filtered[this.props.carouselIndex].weight}</p>
         </div>
@@ -50,7 +50,6 @@ class SelectExercise extends React.Component {
     let filtered =[];
     //
     if( this.props.exercises  && this.props.exercises.length > 0){
-      //window.location.reload();
       filtered = this.props.exercises.filter( e => e.userId === userID);
     }
     console.log("exercises", this.props.exercises)
