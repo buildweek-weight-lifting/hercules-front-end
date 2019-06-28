@@ -37,6 +37,7 @@ class SelectExercise extends React.Component {
           <p>Sets: {filtered[this.props.carouselIndex].sets}</p>
           <p>Reps: {filtered[this.props.carouselIndex].reps}</p>
           <p>Weights: {filtered[this.props.carouselIndex].weight}</p>
+
         </div>
       )
     }
