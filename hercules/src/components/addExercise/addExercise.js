@@ -33,7 +33,7 @@ class AddExercise extends React.Component{
         console.log("add ex userid", this.state.id)
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
-        
+        setTimeout(function(){ window.location.reload() }, 100);
     }
 
     render(){
