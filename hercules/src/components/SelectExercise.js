@@ -43,7 +43,7 @@ class SelectExercise extends React.Component {
     console.log("user id", localStorage.getItem("id"))
     //let filtered = this.props.exercises.filter( e => e.userId === userID);
     let filtered =[];
-    if(this.props.exercises.length > 0){
+    if(this.props.exercises && this.props.exercises.length > 0){
       //window.location.reload();
       filtered = this.props.exercises.filter( e => e.userId === userID);
     }
