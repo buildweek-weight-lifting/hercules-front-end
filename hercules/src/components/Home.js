@@ -42,7 +42,7 @@ class Home extends React.Component {
         
         <div>
           
-          <p>{ this.props.carouselIndex+1 } / {filtered.length } </p>
+          <p className="count">{ this.props.carouselIndex+1 } / {filtered.length } </p>
           <h1>Name: {filtered[this.props.carouselIndex].name}</h1>
          
         </div>
@@ -56,9 +56,8 @@ class Home extends React.Component {
     console.log("props exercises", this.props.exercises);
     let userID = parseInt(localStorage.getItem("id"));
     let filtered =[];
-
+//
     if(this.props.exercises && this.props.exercises.length > 0){
-      //window.location.reload();
       filtered = this.props.exercises.filter( e => e.userId === userID);
     }
     return(

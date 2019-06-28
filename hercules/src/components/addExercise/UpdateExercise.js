@@ -40,15 +40,16 @@ class UpdateExercise extends React.Component{
     }
 
     submitHandler = (e) => {
-        console.log("sub e", e);
+        // console.log("sub e", e);
         
-        console.log("state id", this.state.id);
-        console.log("state journo id", this.state.journalId);
+        // console.log("state id", this.state.id);
+        // console.log("state journo id", this.state.journalId);
         e.preventDefault();
         
         this.props.updateExercise(this.state);
         this.props.history.push('/dashboard');
-        console.log("state id", this.state)
+        setTimeout(function(){ window.location.reload() }, 500);
+        //console.log("state id", this.state)
 
     }
 
