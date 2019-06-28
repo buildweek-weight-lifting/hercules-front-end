@@ -32,3 +32,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+@media(max-width: 375px){
+  .App{
+    height: 667px;
+    background-color: #000000;
+  }
+}

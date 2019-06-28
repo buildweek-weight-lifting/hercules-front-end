@@ -61,7 +61,8 @@ class Login extends React.Component {
                         name='username'
                         placeholder="username"
                         value={this.state.credentials.username}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <input
                         className="password-field"
@@ -69,7 +70,8 @@ class Login extends React.Component {
                         name='password'
                         placeholder="password"
                         value={this.state.credentials.password}
-                        onChange={this.handleChange}>
+                        onChange={this.handleChange}
+                        required>
                     </input>
                     <button className="login-btn" onClick={this.loginSubmit}>{this.props.isLoggingIn ? (
                         <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />

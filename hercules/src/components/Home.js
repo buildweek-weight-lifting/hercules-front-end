@@ -14,7 +14,6 @@ class Home extends React.Component {
     
   }
   delete = () => {
-    console.log("id", this.props.exercises[this.props.carouselIndex].id);
     this.props.deleteExercise(this.props.exercises[this.props.carouselIndex].id);
   }
 
@@ -40,7 +39,7 @@ class Home extends React.Component {
       //console.log("filtered", filtered)
       return (
         
-        <div>
+        <div className="workout-selection">
           
           <p>{ this.props.carouselIndex+1 } / {filtered.length } </p>
           <h1>Name: {filtered[this.props.carouselIndex].name}</h1>
@@ -52,8 +51,6 @@ class Home extends React.Component {
 
   render () {
     
-    console.log("storage", localStorage.getItem("id"));
-    console.log("props exercises", this.props.exercises);
     let userID = parseInt(localStorage.getItem("id"));
     let filtered =[];
 
@@ -64,9 +61,9 @@ class Home extends React.Component {
     return(
       
       <div className="Home">
-        <Nav />
+        <Nav className="NavItems" />
         
-        <h1>Hercules</h1> 
+        {/* <h1>Hercules</h1>  */}
         <p>{/*this.props.exerciseData[this.props.carouselIndex].name*/}</p>
         {this.testRender(filtered)}
     
@@ -76,12 +73,12 @@ class Home extends React.Component {
           <div>{e.id} -- {e.name}</div>
         )) } */}
         <NavLink exact to="/select-exercise">
-        <h3>select exercise</h3>
+        <div className="select-button"><p>select exercise</p></div>
         </NavLink>
         
         <div className="carouselButtons">
-        <h3 onClick={() => this.left(filtered)}> left </h3>
-        <h3 onClick={() => this.right(filtered)}> right </h3>
+        <div className="btn-left" onClick={() => this.left(filtered)}> </div>
+        <div className="btn-right" onClick={() => this.right(filtered)}> </div>
         
         </div>
       </div>

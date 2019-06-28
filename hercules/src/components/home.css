@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 
+.Nav{
+  position: relative;
+  z-index: +1;
+}
 
 .Home{
   font-family: 'Oswald';
@@ -19,22 +23,75 @@
 
     background: black;
 }
-h3{
-  text-decoration: none;
-  background: #FFEC42;
-  border: 1px solid #FFEC42;
-  border-radius: 4px;
-  color: black;
-  margin: 10px 30%;
-  padding: 6px;
+
+.workout-selection{
+  position: relative;
+  top: 350px;
+  left: 10px;
+  text-align: left;
 }
+
+.workout-selection p{
+  position: relative;
+  left: 320px;
+  top: 150px;
+}
+.select-button{
+  background: #FFEC42;
+  border: none;
+  color: #000000;
+  width: 150px;
+  height: 60px;
+  display: flex;
+  margin-right: -50px !important;
+  align-items: center;
+  padding-left: 66px;
+  font-size: 14px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  position: relative;
+  top: 415px;
+  right: -5px;
+  text-decoration: none !important;
+}
+.select-button p {
+  text-decoration: none !important;
+}
+
 .carouselButtons{
   display: flex;
   justify-content: center;
+  width: 130px;
 }
 
-.carouselButtons h3 {
-  margin: 10px;
-  text-decoration: none;
+.carouselButtons{
+  position: relative;
+  top: 355px;
+  left: 235px;
+  z-index: +1;
 }
 
+.btn-left{
+  background-image: url(../assets/arrow-up.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  border: 1px solid grey;
+  transform: rotate(-90deg);
+  margin-right: 4.5px;
+}
+
+.btn-right{
+  background-image: url(../assets/arrow-up.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  border: 1px solid grey;
+  transform: rotate(90deg);
+  margin-left: 4.5px;
+}

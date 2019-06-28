@@ -4,6 +4,7 @@ import './addexercise.css'
 import { updateExercise } from '../../actions/index';
 import { withRouter } from 'react-router-dom';
 import Nav from "../Nav";
+import './addexercise.css'
 
 class UpdateExercise extends React.Component{
     constructor(props){
@@ -55,12 +56,13 @@ class UpdateExercise extends React.Component{
     render(){
         
         return(
+            <div className="addExercise-page">
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
             <Nav />
             <h3>Exercise Title</h3>
-            <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name}></input>
+            <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name} required></input>
             <h3>Sets</h3>
-            <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Sets"></input>
+            <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Sets" required></input>
             <h3>Description</h3>
             <textarea className="input-description" onChange={this.inputHandler} disabled="disabled" type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
 
@@ -79,9 +81,9 @@ class UpdateExercise extends React.Component{
                 <h3> </h3>
                 <h3 className="textlifted">Amount Lifted</h3>
 
-                <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="00"></input>
+                <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="00" required></input>
                 <h3>AND</h3>
-                <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.weight} name="weight" placeholder="00"></input>
+                <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.weight} name="weight" placeholder="00" required></input>
             </div>
 
             <div className="addExercise-customImage">
@@ -90,6 +92,7 @@ class UpdateExercise extends React.Component{
             </div>
             <button className="createExerciseBtn">Update exercise!</button>
         </form>
+        </div>
         )
     }
 }
