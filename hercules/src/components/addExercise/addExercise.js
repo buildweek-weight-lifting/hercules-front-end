@@ -21,7 +21,15 @@ class AddExercise extends React.Component{
                 weight: ''
         }
     }
-    
+    componentDidMount() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        this.setState({reps: today})
+        // console.log("state date: ", this.state.reps);
+    }
     inputHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -31,13 +39,14 @@ class AddExercise extends React.Component{
     submitHandler = (e) => {
         e.preventDefault();
         console.log("add ex userid", this.state.id)
+        console.log("ad ex date", this.state.id)
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
         setTimeout(function(){ window.location.reload() }, 200);
     }
 
     render(){
-        
+        console.log("state date: ", this.state.reps);
         return(
             <div className="addExercise-page">
                 <Nav />

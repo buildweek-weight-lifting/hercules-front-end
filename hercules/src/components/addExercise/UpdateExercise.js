@@ -26,10 +26,18 @@ class UpdateExercise extends React.Component{
     componentDidMount() {
         let userID = parseInt(localStorage.getItem("id"));
         let filtered = this.props.exercises.filter( e => e.userId === userID);
-            this.setState({
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+            today = mm + '/' + dd + '/' + yyyy; 
+        
+        this.setState({
                 id: filtered[this.props.carouselIndex].id,
-                journalId: filtered[this.props.carouselIndex].journalId
+                journalId: filtered[this.props.carouselIndex].journalId,
+                reps: today
             })
+
     }
 
 

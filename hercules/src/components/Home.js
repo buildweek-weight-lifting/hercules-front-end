@@ -42,7 +42,7 @@ class Home extends React.Component {
         <div className="workout-selection">
           
           <p className="count">{ this.props.carouselIndex+1 } / {filtered.length } </p>
-          <h1>Name: {filtered[this.props.carouselIndex].name}</h1>
+          <h1>Exercise: {filtered[this.props.carouselIndex].name}</h1>
          
         </div>
       )
