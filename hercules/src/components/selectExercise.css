@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-@media(max-width: 900){
+@media(min-width: 900){
   .list{
     display: flex;
     justify-content: space-around;
@@ -16,7 +16,8 @@
     text-align: left;
     padding-left: 20px;
     padding-bottom: 10px;
-  }
+    color: white;
+    }
 
   .action-btns{
     display: flex;
