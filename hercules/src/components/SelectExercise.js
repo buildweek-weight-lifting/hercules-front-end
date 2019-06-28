@@ -21,8 +21,8 @@ class SelectExercise extends React.Component {
     let sendId = filtered[this.props.carouselIndex].id;
     console.log("ex id", sendId)
     this.props.deleteExercise(sendId);
-    setTimeout(function(){ window.location.reload() }, 100);
-    
+    this.props.history.push('/dashboard')
+    setTimeout(function(){ window.location.reload() }, 200);
   }
 
   testRender = (filtered) => {
@@ -34,9 +34,10 @@ class SelectExercise extends React.Component {
       return (
         <div className="exercise-info">
           <p>Exercise: {filtered[this.props.carouselIndex].name}</p>
-          <p>Sets: {filtered[this.props.carouselIndex].sets}</p>
-          <p>Reps: {filtered[this.props.carouselIndex].reps}</p>
-          <p>Weights: {filtered[this.props.carouselIndex].weight}</p>
+
+          <p>Region: {filtered[this.props.carouselIndex].sets}</p>
+          <p>Date: {filtered[this.props.carouselIndex].reps}</p>
+          <p>Weight: {filtered[this.props.carouselIndex].weight}</p>
 
         </div>
       )
