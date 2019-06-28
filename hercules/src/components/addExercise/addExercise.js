@@ -56,7 +56,7 @@ class AddExercise extends React.Component{
                 <h3>Exercise Title</h3>
                 <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name} required></input>
                 <h3>Region</h3>
-                <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Sets" required></input>
+                <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Target region" required></input>
                 {/* <h3>Description</h3>
                 <textarea className="input-description" onChange={this.inputHandler} disabled="disabled" type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
 
@@ -75,7 +75,7 @@ class AddExercise extends React.Component{
                     <h3> </h3>
                     <h3 className="textlifted">Amount Lifted</h3>
 
-                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="00" required></input>
+                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="1/1/2019" required></input>
                     <h3>AND</h3>
                     <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.weight} name="weight" placeholder="00" required></input>
                 </div>
