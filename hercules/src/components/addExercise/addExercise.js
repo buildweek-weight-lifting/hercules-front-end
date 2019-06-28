@@ -33,7 +33,7 @@ class AddExercise extends React.Component{
         console.log("add ex userid", this.state.id)
         this.props.addExercise(this.state);
         this.props.history.push('/dashboard')
-        setTimeout(function(){ window.location.reload() }, 100);
+        setTimeout(function(){ window.location.reload() }, 200);
     }
 
     render(){
@@ -41,12 +41,12 @@ class AddExercise extends React.Component{
         return(
             <div className="addExercise-page">
                 <Nav />
-                 <NavLink exact to="/"><div className="addExercise-back-btn"></div></NavLink>
+                 <NavLink exact to="/dashboard"><div className="addExercise-back-btn"></div></NavLink>
                 <h1 className="addExerciseHeader">ADD A EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
                 <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name} required></input>
-                <h3>Sets</h3>
+                <h3>Region</h3>
                 <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Sets" required></input>
                 <h3>Description</h3>
                 <textarea className="input-description" onChange={this.inputHandler} disabled="disabled" type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
@@ -62,7 +62,7 @@ class AddExercise extends React.Component{
                 </div>
 
                 <div className="addExercise-bottom">
-                    <h3>Repitions</h3>
+                    <h3>Date</h3>
                     <h3> </h3>
                     <h3 className="textlifted">Amount Lifted</h3>
 
