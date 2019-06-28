@@ -34,9 +34,11 @@ class SelectExercise extends React.Component {
       return (
         <div className="exercise-info">
           <p>Exercise: {filtered[this.props.carouselIndex].name}</p>
+
           <p>Region: {filtered[this.props.carouselIndex].sets}</p>
           <p>Date: {filtered[this.props.carouselIndex].reps}</p>
           <p>Weight: {filtered[this.props.carouselIndex].weight}</p>
+
         </div>
       )
     }
