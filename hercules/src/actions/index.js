@@ -91,7 +91,8 @@ export const updateExercise = (updateExercise) => {
     axios.put(`https://get-hercules.herokuapp.com/api/restricted/exercises/${updateExercise.id}`, updateExercise, {headers: { Authorization: localStorage.getItem("token") } })
 
       .then( response => {
-        getExercise()
+        dispatch({type: GET_EXERCISE, exercise: response.data})
+        // getExercise()
       })
       .catch(err => {
         dispatch({type: ERROR_MESSAGE, errorMessage: `This exercise can't be updated.`})

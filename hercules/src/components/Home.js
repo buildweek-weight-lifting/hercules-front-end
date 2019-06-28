@@ -5,6 +5,7 @@ import { getExercise, deleteExercise } from "../actions/index"
 import { goLeft, goRight } from "../actions/homeActions"
 import "./home.css"
 import Nav from "./Nav";
+import './home.css'
 
 class Home extends React.Component {
   
