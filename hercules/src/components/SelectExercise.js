@@ -5,6 +5,7 @@ import './selectExercise.css';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Nav from "./Nav";
+import './selectExercise.css'
 
 class SelectExercise extends React.Component {
 
@@ -28,10 +29,10 @@ class SelectExercise extends React.Component {
     }
     else{
       return (
-        <div>
-          <p>name: {filtered[this.props.carouselIndex].name}</p>
-          <p>reps: {filtered[this.props.carouselIndex].reps}</p>
-          <p>weight: {filtered[this.props.carouselIndex].weight}</p>
+        <div className="exercise-info">
+          <p>Exercise: {filtered[this.props.carouselIndex].name}</p>
+          <p>Reps: {filtered[this.props.carouselIndex].reps}</p>
+          <p>Weights: {filtered[this.props.carouselIndex].weight}</p>
         </div>
       )
     }
@@ -53,14 +54,15 @@ class SelectExercise extends React.Component {
       <div className="Home">
         <Nav />
 
-        <h3 onClick={() => this.delete(filtered)}>delete</h3>
-        <NavLink exact to="/update-exercise">
-        <h3>update</h3>
-        </NavLink>
-        
+        <div className="action-btns">
+          <div className="delete-btn" onClick={() => this.delete(filtered)}>delete</div>
+          <NavLink exact to="/update-exercise">
+          <div className="update-btn">update</div>
+          </NavLink>
+        </div>
         {this.testRender(filtered)}
         <NavLink exact to="/dashboard">
-        <h3>back</h3>
+        <div className="back-btn"></div>
         </NavLink>
       </div>
     );
