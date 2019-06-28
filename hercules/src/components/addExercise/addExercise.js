@@ -14,7 +14,7 @@ class AddExercise extends React.Component{
         super(props);
         this.state = {
                 journalId: id * Math.floor(Math.random() * 100000) + 1,
-                userId: id,
+                userId: localStorage.getItem("id"),
                 name: '',
                 reps: '',
                 sets: '',

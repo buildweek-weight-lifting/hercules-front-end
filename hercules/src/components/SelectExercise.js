@@ -3,6 +3,7 @@ import { getExercise, deleteExercise } from "../actions/index"
 import { connect } from "react-redux";
 import './selectExercise.css';
 import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Nav from "./Nav";
 
 class SelectExercise extends React.Component {
@@ -14,8 +15,8 @@ class SelectExercise extends React.Component {
 
   }
 
-  delete = () => {
-    let sendId = this.props.exercises[this.props.carouselIndex].id;
+  delete = (filtered) => {
+    let sendId = filtered[this.props.carouselIndex].id;
     this.props.deleteExercise(sendId);
   }
 
@@ -40,7 +41,7 @@ class SelectExercise extends React.Component {
     return(
       <div className="Home">
         <Nav />
-        <h3 onClick={this.delete}>delete</h3>
+        <h3 onClick={ ()=>this.delete(filtered)}>delete</h3>
         <NavLink exact to="/update-exercise">
         <h3>update</h3>
         </NavLink>
@@ -61,10 +62,10 @@ const mapStateToProps = state => ({
   carouselIndex: state.carouselIndex
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   { getExercise, deleteExercise }
-)(SelectExercise);
+)(SelectExercise));
 
 
 /*
