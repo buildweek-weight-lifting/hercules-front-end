@@ -85,14 +85,14 @@ class UpdateExercise extends React.Component{
             <textarea className="input-description" onChange={this.inputHandler} disabled="disabled" type="text" name="description" placeholder="Write a description of the workout" value={this.state.description}></textarea>
 
             <h3>Target Region Area</h3>
-            <div className="targetRegion-Btns">
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion" value="Biceps">Biceps</button>
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Triceps">Triceps</button>
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Back">Back</button>
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Chest">Chest</button>
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Shoulders">Shoulders</button>
-                <button type="button" onClick={this.inputHandler} disabled="disabled" name="targetRegion"  value="Legs">Legs</button>
-            </div>
+            <select className="targetRegion-Btns">
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion" value="Biceps">Biceps</button>
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion"  value="Triceps">Triceps</button>
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion"  value="Back">Back</button>
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion"  value="Chest">Chest</button>
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion"  value="Shoulders">Shoulders</button>
+                <button type="button" onClick={this.inputHandler} /*disabled="disabled"*/ name="targetRegion"  value="Legs">Legs</button>
+            </select>
 
             <div className="addExercise-bottom">
                 <h3>Date</h3>

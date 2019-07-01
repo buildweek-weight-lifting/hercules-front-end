@@ -30,8 +30,9 @@ export const login = creds => dispatch => {
 export const signup = (creds) => {
     return(dispatch) => {
       dispatch({type: LOADING})
-      axios.post('https://get-hercules.herokuapp.com/api/auth/register', creds)
+      axios.post('https://hercules-backend.herokuapp.com/register', creds)
         .then( response => {
+          console.log("res", response)
           dispatch({type: GET_USERS, users: response.data})
         })
         .catch(err => {
