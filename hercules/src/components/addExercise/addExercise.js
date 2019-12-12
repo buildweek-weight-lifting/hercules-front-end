@@ -18,7 +18,8 @@ class AddExercise extends React.Component{
                 name: '',
                 reps: '',
                 sets: '',
-                weight: ''
+                weight: '',
+                date: ''
         }
     }
     componentDidMount() {
@@ -27,7 +28,7 @@ class AddExercise extends React.Component{
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
         today = mm + '/' + dd + '/' + yyyy;
-        this.setState({reps: today})
+        this.setState({date: today})
         // console.log("state date: ", this.state.reps);
     }
     inputHandler = (e) => {
@@ -51,7 +52,7 @@ class AddExercise extends React.Component{
             <div className="addExercise-page">
                 <Nav />
                  <NavLink exact to="/dashboard"><div className="addExercise-back-btn"></div></NavLink>
-                <h1 className="addExerciseHeader">ADD A EXERCISE</h1>
+                <h1 className="addExerciseHeader">ADD AN EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
                 <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name} required></input>
@@ -72,10 +73,11 @@ class AddExercise extends React.Component{
 
                 <div className="addExercise-bottom">
                     <h3>Date</h3>
+                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.date} name="reps" placeholder="20" required></input>
+
                     <h3> </h3>
                     <h3 className="textlifted">Amount Lifted</h3>
 
-                    <input className="inputReps" type="text" onChange={this.inputHandler} value={this.state.reps} name="reps" placeholder="1/1/2019" required></input>
                     <h3>AND</h3>
                     <input className="inputLifted" type="text" onChange={this.inputHandler} value={this.state.weight} name="weight" placeholder="00" required></input>
                 </div>

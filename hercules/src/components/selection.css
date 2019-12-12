@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @media(min-width: 900px){
     .selection-page{
-        background-color: black;
+        background-color: grey;
         background-image: url(../assets/Background-Image-Desktop.jfif);
         background-color: rgba(50,50,50,.5);
         background-blend-mode: multiply;

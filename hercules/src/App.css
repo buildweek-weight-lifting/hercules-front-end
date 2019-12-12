@@ -10,7 +10,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #777777;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,6 +37,6 @@
 @media(max-width: 375px){
   .App{
     height: 667px;
-    background-color: #000000;
+    background-color: #666666;
   }
 }
