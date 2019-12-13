@@ -11,7 +11,7 @@ export const GET_EXERCISE = "GET_EXERCISE"
 export const login = creds => dispatch => {
     dispatch({type:LOGIN_START});
     return axios
-    .post('https://get-hercules.herokuapp.com/api/auth/login',creds)
+    .post('https://weightlifting-back-end.herokuapp.com/api/auth/login',creds)
     .then(res => {
         localStorage.setItem('token',res.data.token)
         localStorage.setItem('id',res.data.user.id)
@@ -30,7 +30,7 @@ export const login = creds => dispatch => {
 export const signup = (creds) => {
     return(dispatch) => {
       dispatch({type: LOADING})
-      axios.post('https://get-hercules.herokuapp.com/api/auth/register', creds)
+      axios.post('https://weightlifting-back-end.herokuapp.com/api/auth/register', creds)
         .then( response => {
           dispatch({type: GET_USERS, users: response.data})
         })
