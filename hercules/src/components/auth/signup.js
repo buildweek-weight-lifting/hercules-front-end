@@ -1,5 +1,5 @@
 import React from 'react'
-import { signup } from '../../actions'
+import { login } from '../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import './signup.css'
@@ -117,5 +117,5 @@ const mapStateToProps = state => ({
 })
 
 export default withRouter(connect(
-    mapStateToProps, { signup } 
+    mapStateToProps, { login } 
 )(SignUp))
