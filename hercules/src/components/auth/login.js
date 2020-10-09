@@ -1,5 +1,5 @@
 import React from 'react'
-import { login } from '../../actions'
+import { login } from '../actions'
 import { connect } from 'react-redux'
 import Loader from 'react-loader-spinner'
 import { withRouter } from 'react-router-dom';

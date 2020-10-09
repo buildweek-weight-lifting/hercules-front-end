@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addExercise } from '../../actions/index.js';
+import { addExercise } from '../actions/index.js';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import './addexercise.css'
