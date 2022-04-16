@@ -41,7 +41,6 @@ class SignUp extends React.Component {
             email: ''
         })
         this.props.history.push('/')
-        console.log(this.state)
     }
 
     render() {

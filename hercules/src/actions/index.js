@@ -23,6 +23,7 @@ export const login = creds => dispatch => {
     console.log("creds", creds);
     dispatch({type:LOGIN_START});
     return axios
+
     .post(`${backend_url}/api/auth/login`,creds)
     .then(res => {
         localStorage.setItem('token',res.data.token);
@@ -42,7 +43,6 @@ export const login = creds => dispatch => {
 export const signup = (creds) => {
     return(dispatch) => {
       dispatch({type: LOADING})
-      axios.post(`${backend_url}/api/auth/register`, creds)
         .then( response => {
           dispatch({type: GET_USERS, users: response.data})
         })

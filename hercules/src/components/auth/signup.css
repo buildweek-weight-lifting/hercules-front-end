@@ -41,7 +41,7 @@
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
         position: relative;
-        bottom: 20px;
+        bottom: 50px;
     }
 
     .signup-form input{
@@ -144,7 +144,7 @@
         height: 46px;
         background-color: #FFEC42;
         color: #000000;
-        margin: 10px auto;
+        margin: 100px auto;
         cursor: pointer;
         font-family: 'Roboto', sans-serif;
         font-style: normal;
