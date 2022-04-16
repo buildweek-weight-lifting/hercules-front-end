@@ -32,7 +32,7 @@
       .drop-down{
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
-      
+      /* border: 1px solid grey; */
       }
   
       .drop-down a{
@@ -46,15 +46,21 @@
       text-align: center;
       }
       .nav-links{
-        border-bottom: 1px solid #343434;
+        border: 1px solid #343434;
         width: 375px;
         height: 36px;
         position: relative;
         left: -15px;
         padding-top: 15px;
       }
+
+      .nav-links:hover{
+        color: grey;
+      }
+
       .nav-link-home{
-        border-top: 1px solid #343434;
+        border: 1px solid #343434;
+
       }
       .menu-burger{
       background-image: url(../assets/Nav.svg);
