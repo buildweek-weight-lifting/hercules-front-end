@@ -38,12 +38,14 @@ class AddExercise extends React.Component{
     }
 
     submitHandler = (e) => {
+
+        console.log(this.state);
         e.preventDefault();
         console.log("add ex userid", this.state.id)
         console.log("ad ex date", this.state.id)
         this.props.addExercise(this.state);
-        this.props.history.push('/dashboard')
-        setTimeout(function(){ window.location.reload() }, 200);
+        // this.props.history.push('/dashboard')
+        // setTimeout(function(){ window.location.reload() }, 200);
     }
 
     render(){
@@ -55,7 +57,7 @@ class AddExercise extends React.Component{
                 <h1 className="addExerciseHeader">ADD AN EXERCISE</h1>
             <form className="exerciseInfoForm" onSubmit={this.submitHandler}>
                 <h3>Exercise Title</h3>
-                <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Quick hit Abs" value={this.state.name} required></input>
+                <input className="input-title" onChange={this.inputHandler} type="text" name="name" placeholder="e.g. Curls" value={this.state.name} required></input>
                 <h3>Region</h3>
                 <input className="input-date" onChange={this.inputHandler} type="text" name="sets" value={this.state.sets} placeholder="Target region" required></input>
                 {/* <h3>Description</h3>

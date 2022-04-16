@@ -8,15 +8,27 @@ export const ERROR_MESSAGE = "ERROR_MESSAGE"
 export const LOADING = "LOADING"
 export const GET_EXERCISE = "GET_EXERCISE"
 
+let deploy = "http://localhost:8000";
+//  "https://weightlifting-back-end.herokuapp.com";
+// "https://get-hercules.herokuapp.com"
+// "https://weightlifting-back-end.herokuapp.com";
+let local = "http://localhost:8000";
+// "https://localhost5000"
+// "https://weightlifting-back-end.herokuapp.com";
+// "https://localhost5000";
+
+let backend_url = local || deploy;
+console.log("ahhhhh");
 export const login = creds => dispatch => {
+    console.log("creds", creds);
     dispatch({type:LOGIN_START});
     return axios
-    .post('https://weightlifting-back-end.herokuapp.com/api/auth/login',creds)
+    .post(`${backend_url}/api/auth/login`,creds)
     .then(res => {
-        localStorage.setItem('token',res.data.token)
-        localStorage.setItem('id',res.data.user.id)
-        localStorage.setItem('token',res.data.token)
-        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('token',res.data.token);
+        localStorage.setItem('id',res.data.user.id);
+        localStorage.setItem('token',res.data.token);
+        localStorage.setItem('token',res.data.token);
         dispatch({type:LOGIN_SUCCESS,payload:res.data.payload})
         console.log("res", res)
         return true
@@ -30,7 +42,7 @@ export const login = creds => dispatch => {
 export const signup = (creds) => {
     return(dispatch) => {
       dispatch({type: LOADING})
-      axios.post('https://weightlifting-back-end.herokuapp.com/api/auth/register', creds)
+      axios.post(`${backend_url}/api/auth/register`, creds)
         .then( response => {
           dispatch({type: GET_USERS, users: response.data})
         })
@@ -41,15 +53,17 @@ export const signup = (creds) => {
   }
 
 export const addExercise = (exdata) => {
+  console.log("actions", exdata);
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.post('https://get-hercules.herokuapp.com/api/restricted/exercises', exdata,
+    axios.post(`${backend_url}/api/restricted/exercises`, exdata,
     {headers: { Authorization: localStorage.getItem("token") }, 'Content-Type': 'application/json'}, {headers: { Authorization: localStorage.getItem("id") } })
     .then( response => {
-      dispatch({type: GET_EXERCISE, exercises: response.data})
-      
+      console.log("res",  response)
+      dispatch({type: GET_EXERCISE, exercises: response.data})      
     })
     .catch(err => {
+      console.log("err", err)
       dispatch({type: ERROR_MESSAGE, errorMessage: "User was unable to be added."})
     })
   }
@@ -58,7 +72,7 @@ export const addExercise = (exdata) => {
 export const deleteExercise = (id) => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.delete(`https://get-hercules.herokuapp.com/api/restricted/exercises/${id}`, {headers: { Authorization: localStorage.getItem("token") } })
+    axios.delete(`${backend_url}/api/restricted/exercises/${id}`, {headers: { Authorization: localStorage.getItem("token") } })
       .then(response => {
         dispatch({type: GET_EXERCISE, exercises: response.data })
       })
@@ -71,7 +85,7 @@ export const deleteExercise = (id) => {
 export const getExercise = () => {
   return(dispatch) => {
     dispatch({type: LOADING})
-    axios.get('https://get-hercules.herokuapp.com/api/restricted/exercises', {headers: { Authorization: localStorage.getItem("token") } })
+    axios.get(`${backend_url}/api/restricted/exercises`, {headers: { Authorization: localStorage.getItem("token") } })
     .then( response => {
       dispatch({type: GET_EXERCISE, exercises: response.data.exercises})
     })
@@ -88,7 +102,7 @@ export const updateExercise = (updateExercise) => {
     console.log("update action test id", updateExercise.id)
     dispatch({type: LOADING})
 
-    axios.put(`https://get-hercules.herokuapp.com/api/restricted/exercises/${updateExercise.id}`, updateExercise, {headers: { Authorization: localStorage.getItem("token") } })
+    axios.put(`${backend_url}/api/restricted/exercises/${updateExercise.id}`, updateExercise, {headers: { Authorization: localStorage.getItem("token") } })
 
       .then( response => {
         console.log("update res", response)
